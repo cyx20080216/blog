@@ -1,1 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on cyx20080216的小屋</title><link>https://cyx20080216.github.io/blog/post/</link><description>Recent content in Posts on cyx20080216的小屋</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 10 Oct 2021 15:23:13 +0800</lastBuildDate><atom:link href="https://cyx20080216.github.io/blog/post/index.xml" rel="self" type="application/rss+xml"/><item><title>cyx20080216的个人博客的第一次测试</title><link>https://cyx20080216.github.io/blog/post/firsttest/</link><pubDate>Sun, 10 Oct 2021 15:23:13 +0800</pubDate><guid>https://cyx20080216.github.io/blog/post/firsttest/</guid><description>Hello world</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on cyx20080216的小屋</title>
+    <link>https://cyx20080216.github.io/blog/post/</link>
+    <description>Recent content in Posts on cyx20080216的小屋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 10 Oct 2021 15:23:13 +0800</lastBuildDate><atom:link href="https://cyx20080216.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cyx20080216的个人博客的第一次测试</title>
+      <link>https://cyx20080216.github.io/blog/post/firsttest/</link>
+      <pubDate>Sun, 10 Oct 2021 15:23:13 +0800</pubDate>
+      
+      <guid>https://cyx20080216.github.io/blog/post/firsttest/</guid>
+      <description>Hello world </description>
+    </item>
+    
+  </channel>
+</rss>
