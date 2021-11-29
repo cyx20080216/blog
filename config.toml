@@ -1,0 +1,11 @@
+baseURL = 'https://cyx20080216.github.io/blog/'
+languageCode = 'zh-cn'
+title = 'cyx20080216的小屋'
+
+[params]
+  enableGitalk = true
+[params.gitalk] 
+    clientID = "5a61f349c8a77f994fdd"
+    clientSecret = "01100fcf083b6443124dfe14025e70c648142b1d"
+    repo = "blog"
+    owner = "cyx20080216"
