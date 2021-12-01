@@ -34,7 +34,7 @@ if(searchQuery){
   document.getElementById("search-query").value = searchQuery;
   executeSearch(searchQuery);
 } else {
-  document.getElementById('search-results').innerHTML = "<p class=\"no-results\">Please enter a word or phrase above</p>";
+  document.getElementById('search-results').innerHTML = "<p class=\"no-results\">请在上方输入关键字</p>";
 }
 
 function executeSearch(searchQuery) {
@@ -49,7 +49,7 @@ function executeSearch(searchQuery) {
     if (result.length > 0) {
       populateResults(result);
     } else {
-      document.getElementById('search-results').innerHTML = "<p class=\"no-results\">No matches found</p>";
+      document.getElementById('search-results').innerHTML = "<p class=\"no-results\">没有找到相关内容</p>";
     }
   });
 }
