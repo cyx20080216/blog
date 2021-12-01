@@ -25,5 +25,14 @@
       <description>Hello world. $1+1=2$</description>
     </item>
     
+    <item>
+      <title>🔍</title>
+      <link>https://cyx20080216.github.io/blog/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cyx20080216.github.io/blog/search/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
