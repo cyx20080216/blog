@@ -6,11 +6,11 @@
     <description>Recent content in 题解 on cyx20080216的小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 01 Dec 2021 22:09:00 +0800</lastBuildDate><atom:link href="https://cyx20080216.github.io/blog/tags/%E9%A2%98%E8%A7%A3/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Dec 2021 22:10:00 +0800</lastBuildDate><atom:link href="https://cyx20080216.github.io/blog/tags/%E9%A2%98%E8%A7%A3/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>题解 P2013 无线电测向</title>
       <link>https://cyx20080216.github.io/blog/post/solution-p2013/</link>
-      <pubDate>Wed, 01 Dec 2021 22:09:00 +0800</pubDate>
+      <pubDate>Wed, 01 Dec 2021 22:10:00 +0800</pubDate>
       
       <guid>https://cyx20080216.github.io/blog/post/solution-p2013/</guid>
       <description>题目分析 读完题后，很容易就能看出来，这道题的核心是求两直线交点 在这之前，我们要先算出这两条直线 显然，这两条直线是给定的两座灯塔与船的连线（废</description>
