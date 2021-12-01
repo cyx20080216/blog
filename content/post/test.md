@@ -8,3 +8,4 @@ tags: ["测试"]
 categories: ["测试"]
 ---
 # Hello world.
+$1+1=2$
