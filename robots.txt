@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://cyx20080216.github.io/blog/sitemap.xml
