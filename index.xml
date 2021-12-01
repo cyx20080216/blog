@@ -8,6 +8,15 @@
     <language>zh-cn</language>
     <lastBuildDate>Wed, 01 Dec 2021 22:15:00 +0800</lastBuildDate><atom:link href="https://cyx20080216.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>关于</title>
+      <link>https://cyx20080216.github.io/blog/abaut/</link>
+      <pubDate>Wed, 01 Dec 2021 21:05:00 +0800</pubDate>
+      
+      <guid>https://cyx20080216.github.io/blog/abaut/</guid>
+      <description>这是一名OIer的个人博客。 平常会发一些题解，还有踩坑心得。</description>
+    </item>
+    
+    <item>
       <title>Miller-Rabin素性测试</title>
       <link>https://cyx20080216.github.io/blog/post/miller-rabin/</link>
       <pubDate>Wed, 01 Dec 2021 22:15:00 +0800</pubDate>
@@ -41,15 +50,6 @@
       
       <guid>https://cyx20080216.github.io/blog/post/solution-p4825/</guid>
       <description>这道题应该使用动态规划 但是我们一看题目就会发现，这样做时间复杂度会达到$O(n^4)$ 于是大佬们就开始用线段树等来进行优化 可是真的需要优化吗</description>
-    </item>
-    
-    <item>
-      <title>关于</title>
-      <link>https://cyx20080216.github.io/blog/abaut/</link>
-      <pubDate>Wed, 01 Dec 2021 21:05:00 +0800</pubDate>
-      
-      <guid>https://cyx20080216.github.io/blog/abaut/</guid>
-      <description>这是一名OIer的个人博客。 平常会发一些题解，还有踩坑心得。</description>
     </item>
     
     <item>
