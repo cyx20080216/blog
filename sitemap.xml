@@ -1,50 +1,50 @@
-<?xml-stylesheet type="text/xsl" href="https://cyx20080216.github.io/blog/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://cyx20080216.github.io/blog/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2021-12-01T11:47:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cyx20080216.github.io/blog/</loc>
+    <loc>/</loc>
     <lastmod>2021-12-01T11:47:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cyx20080216.github.io/blog/post/</loc>
+    <loc>/post/</loc>
     <lastmod>2021-12-01T11:47:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cyx20080216.github.io/blog/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2021-12-01T11:47:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cyx20080216.github.io/blog/tags/%E6%B5%8B%E8%AF%95/</loc>
+    <loc>/tags/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2021-12-01T11:47:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cyx20080216.github.io/blog/categories/%E6%B5%8B%E8%AF%95/</loc>
+    <loc>/categories/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2021-12-01T11:47:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cyx20080216.github.io/blog/post/test/</loc>
+    <loc>/post/test/</loc>
     <lastmod>2021-12-01T11:47:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
