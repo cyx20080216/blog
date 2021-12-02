@@ -2,8 +2,8 @@
 draft: false
 author: "cyx20080216"
 title: "Miller-Rabin素性测试"
-date: 2021-12-01T22:15:00+08:00
-lastmod: 2021-12-01T22:15:00+08:00
+date: 2021-07-06T19:17:33+08:00
+lastmod: 2021-07-06T19:17:33+08:00
 tags: ["算法"]
 categories: ["算法"]
 ---
