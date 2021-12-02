@@ -6,16 +6,7 @@
     <description>Recent content in 题解 on cyx20080216的小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 01 Dec 2021 22:09:00 +0800</lastBuildDate><atom:link href="https://cyx20080216.github.io/blog/categories/%E9%A2%98%E8%A7%A3/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>题解 P4825 【[USACO15FEB]Cow Hopscotch S】</title>
-      <link>https://cyx20080216.github.io/blog/post/solution-p4825/</link>
-      <pubDate>Wed, 01 Dec 2021 22:09:00 +0800</pubDate>
-      
-      <guid>https://cyx20080216.github.io/blog/post/solution-p4825/</guid>
-      <description>这道题应该使用动态规划 但是我们一看题目就会发现，这样做时间复杂度会达到$O(n^4)$ 于是大佬们就开始用线段树等来进行优化 可是真的需要优化吗</description>
-    </item>
-    
+    <lastBuildDate>Sun, 08 Aug 2021 21:06:20 +0800</lastBuildDate><atom:link href="https://cyx20080216.github.io/blog/categories/%E9%A2%98%E8%A7%A3/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>题解 P2013 无线电测向</title>
       <link>https://cyx20080216.github.io/blog/post/solution-p2013/</link>
@@ -23,6 +14,15 @@
       
       <guid>https://cyx20080216.github.io/blog/post/solution-p2013/</guid>
       <description>题目分析 读完题后，很容易就能看出来，这道题的核心是求两直线交点 在这之前，我们要先算出这两条直线 显然，这两条直线是给定的两座灯塔与船的连线（废</description>
+    </item>
+    
+    <item>
+      <title>题解 P4825 【[USACO15FEB]Cow Hopscotch S】</title>
+      <link>https://cyx20080216.github.io/blog/post/solution-p4825/</link>
+      <pubDate>Wed, 19 Aug 2020 13:51:11 +0800</pubDate>
+      
+      <guid>https://cyx20080216.github.io/blog/post/solution-p4825/</guid>
+      <description>这道题应该使用动态规划 但是我们一看题目就会发现，这样做时间复杂度会达到$O(n^4)$ 于是大佬们就开始用线段树等来进行优化 可是真的需要优化吗</description>
     </item>
     
   </channel>
