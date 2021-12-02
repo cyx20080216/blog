@@ -16,49 +16,28 @@
   
   <url>
     <loc>https://cyx20080216.github.io/blog/categories/</loc>
-    <lastmod>2021-12-01T22:15:00+08:00</lastmod>
+    <lastmod>2021-08-08T21:06:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://cyx20080216.github.io/blog/</loc>
-    <lastmod>2021-12-01T22:15:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://cyx20080216.github.io/blog/post/miller-rabin/</loc>
-    <lastmod>2021-12-01T22:15:00+08:00</lastmod>
+    <lastmod>2021-08-08T21:06:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://cyx20080216.github.io/blog/post/</loc>
-    <lastmod>2021-12-01T22:15:00+08:00</lastmod>
+    <lastmod>2021-08-08T21:06:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://cyx20080216.github.io/blog/tags/</loc>
-    <lastmod>2021-12-01T22:15:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://cyx20080216.github.io/blog/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2021-12-01T22:15:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://cyx20080216.github.io/blog/categories/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2021-12-01T22:15:00+08:00</lastmod>
+    <lastmod>2021-08-08T21:06:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -87,6 +66,27 @@
   <url>
     <loc>https://cyx20080216.github.io/blog/post/solution-p2013/</loc>
     <lastmod>2021-08-08T21:06:20+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyx20080216.github.io/blog/post/miller-rabin/</loc>
+    <lastmod>2021-07-06T19:17:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyx20080216.github.io/blog/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2021-07-06T19:17:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cyx20080216.github.io/blog/categories/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2021-07-06T19:17:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
