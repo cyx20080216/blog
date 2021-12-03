@@ -30,7 +30,7 @@
 <meta itemprop=name content="如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客">
 <meta itemprop=description content="哪个男孩不渴望一个拥有一个个人博客呢 本文将会一步一步地介绍个人博客的搭建的全过程（也是我的个人博客的搭建过程） 注：如果有不明白的地方，可以看"><meta itemprop=datePublished content="2021-12-03T12:55:30+08:00">
 <meta itemprop=dateModified content="2021-12-03T22:29:00+08:00">
-<meta itemprop=wordCount content="3093">
+<meta itemprop=wordCount content="3094">
 <meta itemprop=keywords content="Hugo,Github,网站搭建,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客">
 <meta name=twitter:description content="哪个男孩不渴望一个拥有一个个人博客呢 本文将会一步一步地介绍个人博客的搭建的全过程（也是我的个人博客的搭建过程） 注：如果有不明白的地方，可以看"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
@@ -98,7 +98,7 @@
 <div class=post-category>
 <a href=/blog/categories/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/> 网站搭建 </a>
 </div>
-<span class=more-meta> 约 3093 字 </span>
+<span class=more-meta> 约 3094 字 </span>
 <span class=more-meta> 预计阅读 7 分钟 </span>
 </div>
 </header>
@@ -172,7 +172,7 @@
 <h3 id=发布>发布</h3>
 <p>测试完成后，你可以使用<code>hugo</code>来发布。此时构建结果会输出到public文件夹</p>
 <p>然后，你可以利用Web服务器和浏览器，来访问它们。</p>
-<p>注：如果你真的要就这样把它发布出去，你必须在config.toml中加入baseURL设置，值为今后访问它时使用的URL，如<code>https://cyx20080216.github.io/blog/</code></p>
+<p>注：如果你真的要就这样把它发布出去，你必须在<code>config.toml</code>中加入<code>baseURL</code>参数，值为今后访问它时使用的URL，如<code>https://cyx20080216.github.io/blog/</code></p>
 <h1 id=部署在github-pages上>部署在Github Pages上</h1>
 <p>在此之前，你需要</p>
 <ul>
@@ -182,12 +182,12 @@
 </ul>
 <p>以上不属于本文的主要内容，不再赘述</p>
 <h3 id=创建一个用于存放个人博客的仓库>创建一个用于存放个人博客的仓库</h3>
-<p>建议仓库名为&lt;用户名>.github.io</p>
+<p>建议仓库名为<code>&lt;用户名>.github.io</code></p>
 <p>其余略</p>
 <h3 id=将个人博客推送至上一步创建的仓库>将个人博客推送至上一步创建的仓库</h3>
 <ol>
 <li>进行前文所述的发布操作</li>
-<li>进入public目录</li>
+<li>进入<code>public/</code>目录</li>
 <li>执行<code>git init</code></li>
 <li>执行<code>git remote add origin &lt;创建的仓库的地址，如https://github.com/cyx20080216/blog.git></code></li>
 <li>执行<code>git add -A</code></li>
@@ -208,8 +208,8 @@
 <p>使用步骤：</p>
 <ol>
 <li>将<a href=https://github.com/kaushalmodi/hugo-search-fuse-js>hugo-search-fuse-js</a>放在themes目录下（就像之前加入自己选择的主题一样）</li>
-<li>将config.toml中的<code>theme = "&lt;你的主题名>"</code>改为<code>theme = ["hugo-search-fuse-js", "&lt;你的主题名>"]</code></li>
-<li>创建content/search.md文件作为搜索页面，内容之后再说</li>
+<li>将<code>config.toml</code>中的<code>theme = "&lt;你的主题名>"</code>改为<code>theme = ["hugo-search-fuse-js", "&lt;你的主题名>"]</code></li>
+<li>创建<code>content/search.md</code>文件作为搜索页面，内容之后再说</li>
 <li>依照<a href=https://github.com/kaushalmodi/hugo-search-fuse-js>hugo-search-fuse-js</a>项目的说明对主题或<a href=https://github.com/kaushalmodi/hugo-search-fuse-js>hugo-search-fuse-js</a>进行相应的更改（如，我需要在themes/hugo-theme-even/layouts/_default/baseof.html中加入<code>main</code>和<code>footer</code>块）</li>
 </ol>
 <p><a href=https://github.com/cyx20080216/blog/blob/master/content/search.md>我的content/search.md</a>：</p>
@@ -403,7 +403,7 @@ weight: 60                <span class=ni>#设置权重</span>，决定了在主�
     <span class=nx>admin</span><span class=p>=</span> <span class=s2>&#34;xxx&#34;</span> <span class=c># Required. Github repository owner and collaborators. (Users who having write access to this repository)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>当然，如果你像我一样幸运，使用的主题对Gitalk提供了支持，那么仅需根据文档或实例修改config.toml即可</p>
+</div><p>当然，如果你像我一样幸运，使用的主题对Gitalk提供了支持，那么仅需根据文档或实例修改<code>config.toml</code>即可</p>
 <h1 id=利用github-actions进行自动化部署与在线编辑>利用Github Actions进行自动化部署与在线编辑</h1>
 <h3 id=这有什么用>这有什么用？</h3>
 <p>这当然是有用的。例如：</p>
@@ -413,8 +413,8 @@ weight: 60                <span class=ni>#设置权重</span>，决定了在主�
 </ol>
 <h3 id=步骤>步骤</h3>
 <ol>
-<li>在Github仓库的Settings/Secrets中添加PERSONAL_TOKEN，值为你的私人访问秘钥</li>
-<li>创建.github/workflows/deploy-gh-pags.yml，内容如下：</li>
+<li>在Github仓库的Settings/Secrets中添加<code>PERSONAL_TOKEN</code>，值为你的私人访问秘钥</li>
+<li>创建<code>.github/workflows/deploy-gh-pags.yml</code>，内容如下：</li>
 </ol>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -500,7 +500,7 @@ weight: 60                <span class=ni>#设置权重</span>，决定了在主�
 <li>执行<code>git commit -m "&lt;提交描述>"</code></li>
 <li>执行<code>git push</code></li>
 </ol>
-<p>注：必须确保刚刚添加的文件处于master分支，否则请自行修改.github/workflows/deploy-gh-pags.yml</p>
+<p>注：必须确保刚刚添加的文件处于<code>master</code>分支，否则请自行修改<code>.github/workflows/deploy-gh-pags.yml</code></p>
 <h1 id=大功告成>大功告成</h1>
 <p>现在，你有了一个如标题所说的个人博客。每当仓库里的内容改变，Github Actions会自动帮你构建并部署。还可以随心所欲地搜索、评论。</p>
 </div>
