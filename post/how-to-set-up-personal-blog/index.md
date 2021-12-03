@@ -174,3 +174,59 @@ Gitalk的添加方法比较多，需视情况而定
     admin= "xxx" # Required. Github repository owner and collaborators. (Users who having write access to this repository)
 ```
 当然，如果你像我一样幸运，使用的主题对Gitalk提供了支持，那么仅需根据文档或实例修改config.toml即可
+# 利用Github Actions进行自动化部署与在线编辑
+### 这有什么用？
+这当然是有用的。例如：
+1. 你不再需要用自己的电脑Build再Push
+2. 使得编辑文章变得简单，甚至可以直接在Github的提供的网页接口上编辑
+### 步骤
+1. 在Github仓库的Settings/Secrets中添加PERSONAL_TOKEN，值为你的私人访问秘钥
+2. 创建.github/workflows/deploy-gh-pags.yml，内容如下：
+```yml
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/master' }}
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
+```
+4. 删除所有Hugo自动生成的文件（包括public文件夹）
+5. 执行`git init`
+6. 执行`git remote add origin <仓库地址>`
+7. 执行`git add -A`
+8. 执行`git commit -m "<提交描述>"`
+9. 执行`git push`
+
+注：必须确保刚刚添加的文件处于master分支，否则请自行修改.github/workflows/deploy-gh-pags.yml
+
+# 大功告成
+现在，你有了一个如标题所说的个人博客。每当仓库里的内容改变，Github Actions会自动帮你构建并部署。还可以随心所欲地搜索、评论。
