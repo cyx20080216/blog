@@ -1,5 +1,4 @@
 ---
-draft: false
 author: "cyx20080216"
 title: "小游戏集合"
 date: 2020-11-20T22:00:32+08:00
