@@ -1,5 +1,4 @@
 ---
-draft: false
 author: "cyx20080216"
 title: "题解 P4825 【[USACO15FEB]Cow Hopscotch S】"
 date: 2020-08-19T13:51:11+08:00
