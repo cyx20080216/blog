@@ -1,5 +1,4 @@
 ---
-draft: false
 author: "cyx20080216"
 title: "Miller-Rabin素性测试"
 date: 2021-07-06T19:17:33+08:00
