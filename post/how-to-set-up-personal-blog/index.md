@@ -73,10 +73,10 @@ Hugo是一个静态网站生成器。当然，它也可以生成我们要搭建�
 注：严格来说，它并不是一个独立的主题，而是可以将Fuse功能加入到已有的主题中
 
 使用步骤：
-- 将[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)放在themes目录下（就像之前加入自己选择的主题一样）
-- 将config.toml中的`theme = "<你的主题名>"`改为`theme = ["hugo-search-fuse-js", "<你的主题名>"]`
-- 创建content/search.md文件作为搜索页面，内容之后再说
-- 依照[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)项目的说明对主题或[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)进行相应的更改（如，我需要在themes/hugo-theme-even/layouts/\_default/baseof.html中加入`main`和`footer`块）
+1. 将[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)放在themes目录下（就像之前加入自己选择的主题一样）
+2. 将config.toml中的`theme = "<你的主题名>"`改为`theme = ["hugo-search-fuse-js", "<你的主题名>"]`
+3. 创建content/search.md文件作为搜索页面，内容之后再说
+4. 依照[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)项目的说明对主题或[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)进行相应的更改（如，我需要在themes/hugo-theme-even/layouts/\_default/baseof.html中加入`main`和`footer`块）
 
 [我的content/search.md](https://github.com/cyx20080216/blog/blob/master/content/search.md)：
 ```md
@@ -142,3 +142,35 @@ weight: 60                #设置权重，决定了在主菜单中显示的顺�
 </html>
 ```
 至此，你可以通过访问`<你的baseURL>/search/`来进行搜索
+# 使用Gitalk添加评论功能
+Gitalk的添加方法比较多，需视情况而定
+
+大部分情况下，你需要进行如下操作：
+1. 申请Github OAuth Apps.Homepage URL和Authorization callback URL**必须使用`baseURL`**
+2. 在页面模板的合适位置添加如下内容
+```html
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '{{ .Site.Params.Gitalk.clientID }}',
+    clientSecret: '{{ .Site.Params.Gitalk.clientSecret }}',
+    repo: '{{ .Site.Params.Gitalk.repo }}',
+    owner: '{{ .Site.Params.Gitalk.owner }}',
+    admin: ['{{ .Site.Params.Gitalk.admin }}'],
+    id: location.pathname, //路径长度必须在50字符以内，否则建议使用MD5哈希值
+  });
+  gitalk.render('gitalk-container');
+</script>
+```
+3. 在config.toml中添加如下内容
+```toml
+[Params.Gitalk]
+    clientID = "xxx" # Your client ID
+    clientSecret = "xxx" # Your client secret
+    repo = "xxx" # The repo to store comments
+    owner = "xxx" # Your GitHub ID
+    admin= "xxx" # Required. Github repository owner and collaborators. (Users who having write access to this repository)
+```
+当然，如果你像我一样幸运，使用的主题对Gitalk提供了支持，那么仅需根据文档或实例修改config.toml即可
