@@ -107,12 +107,24 @@
 <div class="post-toc-content always-active">
 <nav id=TableOfContents>
 <ul>
-<li>
+<li><a href=#hugo>Hugo</a>
 <ul>
 <li>
 <ul>
-<li><a href=#hugo>Hugo</a></li>
-<li><a href=#部署在github-pages上>部署在Github Pages上</a></li>
+<li><a href=#安装>安装</a></li>
+<li><a href=#使用>使用</a></li>
+<li><a href=#发布>发布</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=#部署在github-pages上>部署在Github Pages上</a>
+<ul>
+<li>
+<ul>
+<li><a href=#创建一个用于存放个人博客的仓库>创建一个用于存放个人博客的仓库</a></li>
+<li><a href=#将个人博客推送至上一步创建的仓库>将个人博客推送至上一步创建的仓库</a></li>
+<li><a href=#配置github-pages>配置Github Pages</a></li>
 </ul>
 </li>
 </ul>
@@ -125,13 +137,13 @@
 <p><del>哪个男孩不渴望一个拥有一个个人博客呢</del></p>
 <p>本文将会一步一步地介绍个人博客的搭建的全过程（也是<a href=https://cyx20080216.github.io/blog/>我的个人博客</a>的搭建过程）
 注：如果有不明白的地方，可以看<a href=https://github.com/cyx20080216/blog>我的个人博客的Github仓库</a></p>
-<h3 id=hugo>Hugo</h3>
+<h1 id=hugo>Hugo</h1>
 <p>Hugo是一个静态网站生成器。当然，它也可以生成我们要搭建的个人博客。</p>
-<h5 id=安装>安装</h5>
+<h3 id=安装>安装</h3>
 <p>这一步十分简单，只需要前往<a href=https://github.com/gohugoio/hugo/releases/>Hugo在Github上的Release页面</a>，下载对应的版本并解压到合适的位置就行了。</p>
 <p>你也可以下载Deb包，再通过<code>dpkg -i &lt;.deb文件名></code>安装</p>
 <p>如非必需，建议下载extended版本，因为在之后可能会用到</p>
-<h5 id=使用>使用</h5>
+<h3 id=使用>使用</h3>
 <p>首先，选定一个目录来存放你的博客，你需要作如下事情：</p>
 <ul>
 <li>在该目录下创建config.toml文件，用于存储配置信息（为TOML格式）</li>
@@ -144,11 +156,11 @@
 <p>一切就绪后，你可以在目录下运行<code>hugo server</code>来让Hugo构建网站，并可以通过<a href=http://localhost:1313></a>访问</p>
 <p>注1：要构建设置了<code>draft: true</code>的草稿文章，请使用<code>hugo server --draft</code></p>
 <p>注2：命令中的<code>hugo</code>视可执行文件位置而定，除非你使用Deb包，下文也依旧如此</p>
-<h5 id=发布>发布</h5>
+<h3 id=发布>发布</h3>
 <p>测试完成后，你可以使用<code>hugo</code>来发布。此时构建结果会输出到public文件夹</p>
 <p>然后，你可以利用Web服务器和浏览器，来访问它们。</p>
 <p>注：如果你真的要就这样把它发布出去，你必须在config.toml中加入baseURL设置，值为今后访问它时使用的URL，如<code>https://cyx20080216.github.io/blog/</code></p>
-<h3 id=部署在github-pages上>部署在Github Pages上</h3>
+<h1 id=部署在github-pages上>部署在Github Pages上</h1>
 <p>在此之前，你需要</p>
 <ul>
 <li>一个Github帐号</li>
@@ -156,10 +168,10 @@
 <li>知晓Git与Github的基本使用方法</li>
 </ul>
 <p>以上不属于本文的主要内容，不再赘述</p>
-<h5 id=创建一个用于存放个人博客的仓库>创建一个用于存放个人博客的仓库</h5>
+<h3 id=创建一个用于存放个人博客的仓库>创建一个用于存放个人博客的仓库</h3>
 <p>建议仓库名为&lt;用户名>.github.io</p>
 <p>其余略</p>
-<h5 id=将个人博客推送至上一步创建的仓库>将个人博客推送至上一步创建的仓库</h5>
+<h3 id=将个人博客推送至上一步创建的仓库>将个人博客推送至上一步创建的仓库</h3>
 <ol>
 <li>进行前文所述的发布操作</li>
 <li>进入public目录</li>
@@ -171,7 +183,7 @@
 </ol>
 <p>其中3,4仅第一次推送时需执行</p>
 <p>每一次博客内容的改变，都需要执行以上操作</p>
-<h5 id=配置github-pages>配置Github Pages</h5>
+<h3 id=配置github-pages>配置Github Pages</h3>
 <p>前往<code>https://github.com/&lt;Github用户名>/&lt;创建的仓库名>/settings/pages</code></p>
 <p>设置Source部分的分支（此时应该只有一个，选择即可）和目录，点击Save</p>
 <p>此时，你的博客访问地址将会在上方显示（用这个来配置之前说的<code>baseURL</code>）</p>
