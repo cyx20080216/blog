@@ -76,7 +76,7 @@ Hugo是一个静态网站生成器。当然，它也可以生成我们要搭建�
 1. 将[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)放在themes目录下（就像之前加入自己选择的主题一样）
 2. 将`config.toml`中的`theme = "<你的主题名>"`改为`theme = ["hugo-search-fuse-js", "<你的主题名>"]`
 3. 创建`content/search.md`文件作为搜索页面，内容之后再说
-4. 依照[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)项目的说明对主题或[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)进行相应的更改（如，我需要在themes/hugo-theme-even/layouts/\_default/baseof.html中加入`main`和`footer`块）
+4. 依照[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)项目的说明对主题或[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)进行相应的更改（如，我需要在`themes/hugo-theme-even/layouts/_default/baseof.html`中加入`main`和`footer`块）
 
 [我的content/search.md](https://github.com/cyx20080216/blog/blob/master/content/search.md)：
 ```md
