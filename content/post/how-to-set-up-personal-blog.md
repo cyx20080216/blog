@@ -73,5 +73,80 @@ Hugo是一个静态网站生成器。当然，它也可以生成我们要搭建�
 此时，你的博客访问地址将会在上方显示（用这个来配置之前说的`baseURL`）
 
 至此，你的个人博客已基本完成。如果你满足于此，就可以关闭这个页面了，否则，请继续往下看
+# 使用Fuse添加搜索功能
+你可以使用Fuse在前端中实现搜索
 
-（未完待续）
+但是，直接使用Fuse是非常繁琐的。所以，我找到了一个支持Fuse的Hugo主题：[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)
+
+注：严格来说，它并不是一个独立的主题，而是可以将Fuse功能加入到已有的主题中
+
+使用步骤：
+- 将[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)放在themes目录下（就像之前加入自己选择的主题一样）
+- 将config.toml中的`theme = "<你的主题名>"`改为`theme = ["hugo-search-fuse-js", "<你的主题名>"]`
+- 创建content/search.md文件作为搜索页面，内容之后再说
+- 依照[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)项目的说明对主题或[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)进行相应的更改（如，我需要在themes/hugo-theme-even/layouts/\_default/baseof.html中加入`main`和`footer`块）
+
+[我的content/search.md](https://github.com/cyx20080216/blog/blob/master/content/search.md)：
+```md
+---
+title: "🔍"               #设置标题
+layout: "search"          #此行为必须
+outputs: ["html", "json"] #此行为必须
+menu: "main"              #添加到主菜单
+weight: 60                #设置权重，决定了在主菜单中显示的顺序（权重越低越靠前）
+---
+```
+[我的themes/hugo-theme-even/layouts/\_default/baseof.html](https://github.com/cyx20080216/blog/blob/master/themes/hugo-theme-even/layouts/_default/baseof.html)：
+```html
+{{ if ne .Site.Params.version "4.x" -}}
+  {{ errorf "\n\nThere are two possible situations that led to this error:\n  1. You haven't copied the config.toml yet. See https://github.com/olOwOlo/hugo-theme-even#installation \n  2. You have an incompatible update. See https://github.com/olOwOlo/hugo-theme-even/blob/master/CHANGELOG.md#400-2018-11-06 \n\n有两种可能的情况会导致这个错误发生:\n  1. 你还没有复制 config.toml 参考 https://github.com/olOwOlo/hugo-theme-even/blob/master/README-zh.md#installation \n  2. 你进行了一次不兼容的更新 参考 https://github.com/olOwOlo/hugo-theme-even/blob/master/CHANGELOG.md#400-2018-11-06 \n" -}}
+{{ end -}}
+<!DOCTYPE html>
+<html lang="{{ .Site.Language }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>
+    {{- block "title" . -}}
+      {{ if .IsPage }}{{ .Title }} - {{ .Site.Title }}{{ else }}{{ .Site.Title }}{{ end }}
+    {{- end -}}
+  </title>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  {{ partial "slideout.html" . }}
+  <div class="container" id="mobile-panel">
+    {{ if not .Params.hideHeaderAndFooter -}}
+    <header id="header" class="header">
+        {{ partial "header.html" . }}
+    </header>
+    {{- end }}
+    
+    {{ block "main" . }}                      <!--此行由我添加-->
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          {{ block "content" . }}{{ end }}
+        </div>
+        {{ partial "comments.html" . }}
+      </div>
+    </main>
+    {{ end }}                                 <!--此行由我添加-->
+
+    {{ if not .Params.hideHeaderAndFooter -}}
+    {{ block "footer" . }}                    <!--此行由我添加-->
+    <footer id="footer" class="footer">
+      {{ partial "footer.html" . }}
+    </footer>
+    {{ end }}                                 <!--此行由我添加-->
+    {{- end }}
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  {{ partial "scripts.html" . }}
+</body>
+</html>
+```
+至此，你可以通过访问`<你的baseURL>/search/`来进行搜索
