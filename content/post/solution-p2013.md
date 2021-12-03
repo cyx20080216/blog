@@ -1,5 +1,4 @@
 ---
-draft: false
 author: "cyx20080216"
 title: "题解 P2013 无线电测向"
 date: 2021-08-08T21:06:20+08:00
