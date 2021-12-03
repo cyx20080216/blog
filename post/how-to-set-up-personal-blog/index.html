@@ -1,0 +1,256 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法,搜索,评论,自动化部署,在线编辑的个人博客 - cyx20080216的小屋</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="cyx20080216"><meta name=description content="哪个男孩不渴望一个拥有一个个人博客呢 本文将会一步一步地介绍个人博客的搭建的全过程（也是我的个人博客的搭建过程） 注：如果有不明白的地方，可以看">
+<meta name=generator content="Hugo 0.89.4 with theme even">
+<link rel=canonical href=https://cyx20080216.github.io/blog/post/how-to-set-up-personal-blog/>
+<link rel=apple-touch-icon sizes=180x180 href=/blog/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/blog/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/blog/favicon-16x16.png>
+<link rel=manifest href=/blog/manifest.json>
+<link rel=mask-icon href=/blog/safari-pinned-tab.svg color=#5bbad5>
+<link href=/blog/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法,搜索,评论,自动化部署,在线编辑的个人博客">
+<meta property="og:description" content="哪个男孩不渴望一个拥有一个个人博客呢 本文将会一步一步地介绍个人博客的搭建的全过程（也是我的个人博客的搭建过程） 注：如果有不明白的地方，可以看">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://cyx20080216.github.io/blog/post/how-to-set-up-personal-blog/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-12-03T12:55:30+08:00">
+<meta property="article:modified_time" content="2021-12-03T12:55:30+08:00">
+<meta itemprop=name content="如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法,搜索,评论,自动化部署,在线编辑的个人博客">
+<meta itemprop=description content="哪个男孩不渴望一个拥有一个个人博客呢 本文将会一步一步地介绍个人博客的搭建的全过程（也是我的个人博客的搭建过程） 注：如果有不明白的地方，可以看"><meta itemprop=datePublished content="2021-12-03T12:55:30+08:00">
+<meta itemprop=dateModified content="2021-12-03T12:55:30+08:00">
+<meta itemprop=wordCount content="1307">
+<meta itemprop=keywords content="Hugo,Github,网站搭建,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法,搜索,评论,自动化部署,在线编辑的个人博客">
+<meta name=twitter:description content="哪个男孩不渴望一个拥有一个个人博客呢 本文将会一步一步地介绍个人博客的搭建的全过程（也是我的个人博客的搭建过程） 注：如果有不明白的地方，可以看"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/blog/ class=logo>cyx20080216的小屋</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/blog/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/blog/post/>
+<li class=mobile-menu-item>历史</li>
+</a><a href=/blog/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/blog/categories/>
+<li class=mobile-menu-item>分类</li>
+</a><a href=/blog/abaut/>
+<li class=mobile-menu-item>关于</li>
+</a><a href=/blog/search/>
+<li class=mobile-menu-item>🔍</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/blog/ class=logo>cyx20080216的小屋</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/blog/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/blog/post/>历史</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/blog/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/blog/categories/>分类</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/blog/abaut/>关于</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/blog/search/>🔍</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法,搜索,评论,自动化部署,在线编辑的个人博客</h1>
+<div class=post-meta>
+<span class=post-time> 2021-12-03 </span>
+<div class=post-category>
+<a href=/blog/categories/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/> 网站搭建 </a>
+</div>
+<span class=more-meta> 约 1307 字 </span>
+<span class=more-meta> 预计阅读 3 分钟 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class="post-toc-content always-active">
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href=#hugo>Hugo</a></li>
+<li><a href=#部署在github-pages上>部署在Github Pages上</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p><del>哪个男孩不渴望一个拥有一个个人博客呢</del></p>
+<p>本文将会一步一步地介绍个人博客的搭建的全过程（也是<a href=https://cyx20080216.github.io/blog/>我的个人博客</a>的搭建过程）
+注：如果有不明白的地方，可以看<a href=https://github.com/cyx20080216/blog>我的个人博客的Github仓库</a></p>
+<h3 id=hugo>Hugo</h3>
+<p>Hugo是一个静态网站生成器。当然，它也可以生成我们要搭建的个人博客。</p>
+<h5 id=安装>安装</h5>
+<p>这一步十分简单，只需要前往<a href=https://github.com/gohugoio/hugo/releases/>Hugo在Github上的Release页面</a>，下载对应的版本并解压到合适的位置就行了。</p>
+<p>你也可以下载Deb包，再通过<code>dpkg -i &lt;.deb文件名></code>安装</p>
+<p>如非必需，建议下载extended版本，因为在之后可能会用到</p>
+<h5 id=使用>使用</h5>
+<p>首先，选定一个目录来存放你的博客，你需要作如下事情：</p>
+<ul>
+<li>在该目录下创建config.toml文件，用于存储配置信息（为TOML格式）</li>
+<li>在该目录下创建themes文件夹，用于存储主题</li>
+<li>在该目录下创建content文件夹，用于存储文章</li>
+</ul>
+<p>你需要找一个Hugo主题，并把它放在themes文件夹下（我使用了<a href=https://github.com/olOwOlo/hugo-theme-even>hugo-theme-even</a>）</p>
+<p>依照你所使用的主题的文档或示例，编写config.toml和在content文件夹下添加文章（有时可能还要编辑themes/主题名/config.toml）</p>
+<p><a href=https://github.com/cyx20080216/blog/blob/master/config.toml>我的config.toml</a></p>
+<p>一切就绪后，你可以在目录下运行<code>hugo server</code>来让Hugo构建网站，并可以通过<a href=http://localhost:1313></a>访问</p>
+<p>注1：要构建设置了<code>draft: true</code>的草稿文章，请使用<code>hugo server --draft</code></p>
+<p>注2：命令中的<code>hugo</code>视可执行文件位置而定，除非你使用Deb包，下文也依旧如此</p>
+<h5 id=发布>发布</h5>
+<p>测试完成后，你可以使用<code>hugo</code>来发布。此时构建结果会输出到public文件夹</p>
+<p>然后，你可以利用Web服务器和浏览器，来访问它们。</p>
+<p>注：如果你真的要就这样把它发布出去，你必须在config.toml中加入baseURL设置，值为今后访问它时使用的URL，如<code>https://cyx20080216.github.io/blog/</code></p>
+<h3 id=部署在github-pages上>部署在Github Pages上</h3>
+<p>在此之前，你需要</p>
+<ul>
+<li>一个Github帐号</li>
+<li>安装Git</li>
+<li>知晓Git与Github的基本使用方法</li>
+</ul>
+<p>以上不属于本文的主要内容，不再赘述</p>
+<h5 id=创建一个用于存放个人博客的仓库>创建一个用于存放个人博客的仓库</h5>
+<p>建议仓库名为&lt;用户名>.github.io</p>
+<p>其余略</p>
+<h5 id=将个人博客推送至上一步创建的仓库>将个人博客推送至上一步创建的仓库</h5>
+<ol>
+<li>进行前文所述的发布操作</li>
+<li>进入public目录</li>
+<li>执行<code>git init</code></li>
+<li>执行<code>git remote add origin &lt;创建的仓库的地址，如https://github.com/cyx20080216/blog.git></code></li>
+<li>执行<code>git add -A</code></li>
+<li>执行<code>git commit -m "&lt;提交描述>"</code></li>
+<li>执行<code>git push</code>（此步骤可能要求你填写帐号和私人访问密钥）</li>
+</ol>
+<p>其中3,4仅第一次推送时需执行</p>
+<p>每一次博客内容的改变，都需要执行以上操作</p>
+<h5 id=配置github-pages>配置Github Pages</h5>
+<p>前往<code>https://github.com/&lt;Github用户名>/&lt;创建的仓库名>/settings/pages</code></p>
+<p>设置Source部分的分支（此时应该只有一个，选择即可）和目录，点击Save</p>
+<p>此时，你的博客访问地址将会在上方显示（用这个来配置之前说的<code>baseURL</code>）</p>
+<p>至此，你的个人博客已基本完成。如果你满足于此，就可以关闭这个页面了，否则，请继续往下看</p>
+<p>（未完待续）</p>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>文章作者</span>
+<span class=item-content>cyx20080216</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>上次更新</span>
+<span class=item-content>
+2021-12-03
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>原始文档</span>
+<span class=item-content><a class=link-to-markdown href=https://cyx20080216.github.io/blog/post/how-to-set-up-personal-blog/index.md target=_blank>查看本文 Markdown 版本 »</a></span>
+</p>
+<p class=copyright-item>
+<span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh target=_blank>署名-非商业性使用-相同方式共享 4.0 国际</a></span>
+</p>
+</div>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=/blog/tags/hugo/>Hugo</a>
+<a href=/blog/tags/github/>Github</a>
+<a href=/blog/tags/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/>网站搭建</a>
+</div>
+<nav class=post-nav>
+<a class=next href=/blog/post/solution-p2013/>
+<span class="next-text nav-default">题解 P2013 无线电测向</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<div id=gitalk-container></div>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css crossorigin=anonymous>
+<script src=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js crossorigin=anonymous></script>
+<script type=text/javascript>var gitalk=new Gitalk({id:'2021-12-03 12:55:30 \u002b0800 \u002b0800',title:'如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法,搜索,评论,自动化部署,在线编辑的个人博客',clientID:'5a61f349c8a77f994fdd',clientSecret:'01100fcf083b6443124dfe14025e70c648142b1d',repo:'blog',owner:'cyx20080216',admin:['cyx20080216'],body:decodeURI(location.href)});gitalk.render('gitalk-container')</script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/gitalk/gitalk>comments powered by gitalk.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=mailto:cyx20080216@outlook.com class="iconfont icon-email" title=email></a>
+<a href=https://github.com/cyx20080216 class="iconfont icon-github" title=github></a>
+<a href=https://cyx20080216.github.io/blog/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<span class=copyright-year>
+&copy;
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>cyx20080216</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+</body>
+</html>
