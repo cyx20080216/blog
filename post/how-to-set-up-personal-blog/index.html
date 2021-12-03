@@ -30,7 +30,7 @@
 <meta itemprop=name content="如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法,搜索,评论,自动化部署,在线编辑的个人博客">
 <meta itemprop=description content="哪个男孩不渴望一个拥有一个个人博客呢 本文将会一步一步地介绍个人博客的搭建的全过程（也是我的个人博客的搭建过程） 注：如果有不明白的地方，可以看"><meta itemprop=datePublished content="2021-12-03T12:55:30+08:00">
 <meta itemprop=dateModified content="2021-12-03T12:55:30+08:00">
-<meta itemprop=wordCount content="1307">
+<meta itemprop=wordCount content="2282">
 <meta itemprop=keywords content="Hugo,Github,网站搭建,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法,搜索,评论,自动化部署,在线编辑的个人博客">
 <meta name=twitter:description content="哪个男孩不渴望一个拥有一个个人博客呢 本文将会一步一步地介绍个人博客的搭建的全过程（也是我的个人博客的搭建过程） 注：如果有不明白的地方，可以看"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
@@ -98,8 +98,8 @@
 <div class=post-category>
 <a href=/blog/categories/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/> 网站搭建 </a>
 </div>
-<span class=more-meta> 约 1307 字 </span>
-<span class=more-meta> 预计阅读 3 分钟 </span>
+<span class=more-meta> 约 2282 字 </span>
+<span class=more-meta> 预计阅读 5 分钟 </span>
 </div>
 </header>
 <div class=post-toc id=post-toc>
@@ -129,6 +129,7 @@
 </li>
 </ul>
 </li>
+<li><a href=#使用fuse添加搜索功能>使用Fuse添加搜索功能</a></li>
 </ul>
 </nav>
 </div>
@@ -188,7 +189,146 @@
 <p>设置Source部分的分支（此时应该只有一个，选择即可）和目录，点击Save</p>
 <p>此时，你的博客访问地址将会在上方显示（用这个来配置之前说的<code>baseURL</code>）</p>
 <p>至此，你的个人博客已基本完成。如果你满足于此，就可以关闭这个页面了，否则，请继续往下看</p>
-<p>（未完待续）</p>
+<h1 id=使用fuse添加搜索功能>使用Fuse添加搜索功能</h1>
+<p>你可以使用Fuse在前端中实现搜索</p>
+<p>但是，直接使用Fuse是非常繁琐的。所以，我找到了一个支持Fuse的Hugo主题：<a href=https://github.com/kaushalmodi/hugo-search-fuse-js>hugo-search-fuse-js</a></p>
+<p>注：严格来说，它并不是一个独立的主题，而是可以将Fuse功能加入到已有的主题中</p>
+<p>使用步骤：</p>
+<ul>
+<li>将<a href=https://github.com/kaushalmodi/hugo-search-fuse-js>hugo-search-fuse-js</a>放在themes目录下（就像之前加入自己选择的主题一样）</li>
+<li>将config.toml中的<code>theme = "&lt;你的主题名>"</code>改为<code>theme = ["hugo-search-fuse-js", "&lt;你的主题名>"]</code></li>
+<li>创建content/search.md文件作为搜索页面，内容之后再说</li>
+<li>依照<a href=https://github.com/kaushalmodi/hugo-search-fuse-js>hugo-search-fuse-js</a>项目的说明对主题或<a href=https://github.com/kaushalmodi/hugo-search-fuse-js>hugo-search-fuse-js</a>进行相应的更改（如，我需要在themes/hugo-theme-even/layouts/_default/baseof.html中加入<code>main</code>和<code>footer</code>块）</li>
+</ul>
+<p><a href=https://github.com/cyx20080216/blog/blob/master/content/search.md>我的content/search.md</a>：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-md data-lang=md>---
+title: &#34;🔍&#34;               <span class=ni>#设置标题</span>
+layout: &#34;search&#34;          <span class=ni>#此行为必须</span>
+outputs: [&#34;html&#34;, &#34;json&#34;] <span class=ni>#此行为必须</span>
+menu: &#34;main&#34;              <span class=ni>#添加到主菜单</span>
+weight: 60                <span class=ni>#设置权重</span>，决定了在主菜单中显示的顺序（权重越低越靠前）
+---
+</code></pre></td></tr></table>
+</div>
+</div><p><a href=https://github.com/cyx20080216/blog/blob/master/themes/hugo-theme-even/layouts/_default/baseof.html>我的themes/hugo-theme-even/layouts/_default/baseof.html</a>：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html>{{ if ne .Site.Params.version &#34;4.x&#34; -}}
+  {{ errorf &#34;\n\nThere are two possible situations that led to this error:\n  1. You haven&#39;t copied the config.toml yet. See https://github.com/olOwOlo/hugo-theme-even#installation \n  2. You have an incompatible update. See https://github.com/olOwOlo/hugo-theme-even/blob/master/CHANGELOG.md#400-2018-11-06 \n\n有两种可能的情况会导致这个错误发生:\n  1. 你还没有复制 config.toml 参考 https://github.com/olOwOlo/hugo-theme-even/blob/master/README-zh.md#installation \n  2. 你进行了一次不兼容的更新 参考 https://github.com/olOwOlo/hugo-theme-even/blob/master/CHANGELOG.md#400-2018-11-06 \n&#34; -}}
+{{ end -}}
+<span class=cp>&lt;!DOCTYPE html&gt;</span>
+<span class=p>&lt;</span><span class=nt>html</span> <span class=na>lang</span><span class=o>=</span><span class=s>&#34;{{ .Site.Language }}&#34;</span><span class=p>&gt;</span>
+<span class=p>&lt;</span><span class=nt>head</span><span class=p>&gt;</span>
+  <span class=p>&lt;</span><span class=nt>meta</span> <span class=na>charset</span><span class=o>=</span><span class=s>&#34;utf-8&#34;</span><span class=p>&gt;</span>
+  <span class=p>&lt;</span><span class=nt>meta</span> <span class=na>http-equiv</span><span class=o>=</span><span class=s>&#34;X-UA-Compatible&#34;</span> <span class=na>content</span><span class=o>=</span><span class=s>&#34;IE=edge,chrome=1&#34;</span><span class=p>&gt;</span>
+  <span class=p>&lt;</span><span class=nt>title</span><span class=p>&gt;</span>
+    {{- block &#34;title&#34; . -}}
+      {{ if .IsPage }}{{ .Title }} - {{ .Site.Title }}{{ else }}{{ .Site.Title }}{{ end }}
+    {{- end -}}
+  <span class=p>&lt;/</span><span class=nt>title</span><span class=p>&gt;</span>
+  {{ partial &#34;head.html&#34; . }}
+<span class=p>&lt;/</span><span class=nt>head</span><span class=p>&gt;</span>
+<span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+  {{ partial &#34;slideout.html&#34; . }}
+  <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;container&#34;</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;mobile-panel&#34;</span><span class=p>&gt;</span>
+    {{ if not .Params.hideHeaderAndFooter -}}
+    <span class=p>&lt;</span><span class=nt>header</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;header&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;header&#34;</span><span class=p>&gt;</span>
+        {{ partial &#34;header.html&#34; . }}
+    <span class=p>&lt;/</span><span class=nt>header</span><span class=p>&gt;</span>
+    {{- end }}
+    
+    {{ block &#34;main&#34; . }}                      <span class=c>&lt;!--此行由我添加--&gt;</span>
+    <span class=p>&lt;</span><span class=nt>main</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;main&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;main&#34;</span><span class=p>&gt;</span>
+      <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;content-wrapper&#34;</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;content&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;content&#34;</span><span class=p>&gt;</span>
+          {{ block &#34;content&#34; . }}{{ end }}
+        <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+        {{ partial &#34;comments.html&#34; . }}
+      <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>main</span><span class=p>&gt;</span>
+    {{ end }}                                 <span class=c>&lt;!--此行由我添加--&gt;</span>
+
+    {{ if not .Params.hideHeaderAndFooter -}}
+    {{ block &#34;footer&#34; . }}                    <span class=c>&lt;!--此行由我添加--&gt;</span>
+    <span class=p>&lt;</span><span class=nt>footer</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;footer&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;footer&#34;</span><span class=p>&gt;</span>
+      {{ partial &#34;footer.html&#34; . }}
+    <span class=p>&lt;/</span><span class=nt>footer</span><span class=p>&gt;</span>
+    {{ end }}                                 <span class=c>&lt;!--此行由我添加--&gt;</span>
+    {{- end }}
+
+    <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;back-to-top&#34;</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;back-to-top&#34;</span><span class=p>&gt;</span>
+      <span class=p>&lt;</span><span class=nt>i</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;iconfont icon-up&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>i</span><span class=p>&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+  <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+  {{ partial &#34;scripts.html&#34; . }}
+<span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>至此，你可以通过访问<code>&lt;你的baseURL>/search/</code>来进行搜索</p>
 </div>
 <div class=post-copyright>
 <p class=copyright-item>
