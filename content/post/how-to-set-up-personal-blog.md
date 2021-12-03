@@ -40,7 +40,7 @@ Hugo是一个静态网站生成器。当然，它也可以生成我们要搭建�
 
 然后，你可以利用Web服务器和浏览器，来访问它们。
 
-注：如果你真的要就这样把它发布出去，你必须在config.toml中加入baseURL设置，值为今后访问它时使用的URL，如`https://cyx20080216.github.io/blog/`
+注：如果你真的要就这样把它发布出去，你必须在`config.toml`中加入`baseURL`参数，值为今后访问它时使用的URL，如`https://cyx20080216.github.io/blog/`
 # 部署在Github Pages上
 在此之前，你需要
 - 一个Github帐号
@@ -50,12 +50,12 @@ Hugo是一个静态网站生成器。当然，它也可以生成我们要搭建�
 以上不属于本文的主要内容，不再赘述
 
 ### 创建一个用于存放个人博客的仓库
-建议仓库名为<用户名>.github.io
+建议仓库名为`<用户名>.github.io`
 
 其余略
 ### 将个人博客推送至上一步创建的仓库
 1. 进行前文所述的发布操作
-2. 进入public目录
+2. 进入`public/`目录
 3. 执行`git init`
 4. 执行`git remote add origin <创建的仓库的地址，如https://github.com/cyx20080216/blog.git>`
 5. 执行`git add -A`
@@ -82,8 +82,8 @@ Hugo是一个静态网站生成器。当然，它也可以生成我们要搭建�
 
 使用步骤：
 1. 将[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)放在themes目录下（就像之前加入自己选择的主题一样）
-2. 将config.toml中的`theme = "<你的主题名>"`改为`theme = ["hugo-search-fuse-js", "<你的主题名>"]`
-3. 创建content/search.md文件作为搜索页面，内容之后再说
+2. 将`config.toml`中的`theme = "<你的主题名>"`改为`theme = ["hugo-search-fuse-js", "<你的主题名>"]`
+3. 创建`content/search.md`文件作为搜索页面，内容之后再说
 4. 依照[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)项目的说明对主题或[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)进行相应的更改（如，我需要在themes/hugo-theme-even/layouts/\_default/baseof.html中加入`main`和`footer`块）
 
 [我的content/search.md](https://github.com/cyx20080216/blog/blob/master/content/search.md)：
@@ -181,15 +181,15 @@ Gitalk的添加方法比较多，需视情况而定
     owner = "xxx" # Your GitHub ID
     admin= "xxx" # Required. Github repository owner and collaborators. (Users who having write access to this repository)
 ```
-当然，如果你像我一样幸运，使用的主题对Gitalk提供了支持，那么仅需根据文档或实例修改config.toml即可
+当然，如果你像我一样幸运，使用的主题对Gitalk提供了支持，那么仅需根据文档或实例修改`config.toml`即可
 # 利用Github Actions进行自动化部署与在线编辑
 ### 这有什么用？
 这当然是有用的。例如：
 1. 你不再需要用自己的电脑Build再Push
 2. 使得编辑文章变得简单，甚至可以直接在Github的提供的网页接口上编辑
 ### 步骤
-1. 在Github仓库的Settings/Secrets中添加PERSONAL_TOKEN，值为你的私人访问秘钥
-2. 创建.github/workflows/deploy-gh-pags.yml，内容如下：
+1. 在Github仓库的Settings/Secrets中添加`PERSONAL_TOKEN`，值为你的私人访问秘钥
+2. 创建`.github/workflows/deploy-gh-pags.yml`，内容如下：
 ```yml
 name: GitHub Pages
 
@@ -234,7 +234,7 @@ jobs:
 8. 执行`git commit -m "<提交描述>"`
 9. 执行`git push`
 
-注：必须确保刚刚添加的文件处于master分支，否则请自行修改.github/workflows/deploy-gh-pags.yml
+注：必须确保刚刚添加的文件处于`master`分支，否则请自行修改`.github/workflows/deploy-gh-pags.yml`
 
 # 大功告成
 现在，你有了一个如标题所说的个人博客。每当仓库里的内容改变，Github Actions会自动帮你构建并部署。还可以随心所欲地搜索、评论。
