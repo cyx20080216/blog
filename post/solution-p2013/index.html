@@ -1,175 +1,130 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!doctype html><html lang=zh-cn>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>题解 P2013 无线电测向 - cyx20080216的小屋</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="cyx20080216" /><meta name="description" content="题目分析 读完题后，很容易就能看出来，这道题的核心是求两直线交点 在这之前，我们要先算出这两条直线 显然，这两条直线是给定的两座灯塔与船的连线（废" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.89.4 with theme even" />
-
-
-<link rel="canonical" href="https://cyx20080216.github.io/blog/post/solution-p2013/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
-<link rel="manifest" href="/blog/manifest.json">
-<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-<link href="/blog/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="题解 P2013 无线电测向" />
-<meta property="og:description" content="题目分析 读完题后，很容易就能看出来，这道题的核心是求两直线交点 在这之前，我们要先算出这两条直线 显然，这两条直线是给定的两座灯塔与船的连线（废" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://cyx20080216.github.io/blog/post/solution-p2013/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-08-08T21:06:20+08:00" />
-<meta property="article:modified_time" content="2021-08-08T21:06:20+08:00" />
-
-<meta itemprop="name" content="题解 P2013 无线电测向">
-<meta itemprop="description" content="题目分析 读完题后，很容易就能看出来，这道题的核心是求两直线交点 在这之前，我们要先算出这两条直线 显然，这两条直线是给定的两座灯塔与船的连线（废"><meta itemprop="datePublished" content="2021-08-08T21:06:20+08:00" />
-<meta itemprop="dateModified" content="2021-08-08T21:06:20+08:00" />
-<meta itemprop="wordCount" content="535">
-<meta itemprop="keywords" content="题解,洛谷," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="题解 P2013 无线电测向"/>
-<meta name="twitter:description" content="题目分析 读完题后，很容易就能看出来，这道题的核心是求两直线交点 在这之前，我们要先算出这两条直线 显然，这两条直线是给定的两座灯塔与船的连线（废"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>题解 P2013 无线电测向 - cyx20080216的小屋</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="cyx20080216"><meta name=description content="题目分析 读完题后，很容易就能看出来，这道题的核心是求两直线交点 在这之前，我们要先算出这两条直线 显然，这两条直线是给定的两座灯塔与船的连线（废">
+<meta name=generator content="Hugo 0.89.4 with theme even">
+<link rel=canonical href=https://cyx20080216.github.io/blog/post/solution-p2013/>
+<link rel=apple-touch-icon sizes=180x180 href=/blog/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/blog/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/blog/favicon-16x16.png>
+<link rel=manifest href=/blog/manifest.json>
+<link rel=mask-icon href=/blog/safari-pinned-tab.svg color=#5bbad5>
+<link href=/blog/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="题解 P2013 无线电测向">
+<meta property="og:description" content="题目分析 读完题后，很容易就能看出来，这道题的核心是求两直线交点 在这之前，我们要先算出这两条直线 显然，这两条直线是给定的两座灯塔与船的连线（废">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://cyx20080216.github.io/blog/post/solution-p2013/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-08-08T21:06:20+08:00">
+<meta property="article:modified_time" content="2021-08-08T21:06:20+08:00">
+<meta itemprop=name content="题解 P2013 无线电测向">
+<meta itemprop=description content="题目分析 读完题后，很容易就能看出来，这道题的核心是求两直线交点 在这之前，我们要先算出这两条直线 显然，这两条直线是给定的两座灯塔与船的连线（废"><meta itemprop=datePublished content="2021-08-08T21:06:20+08:00">
+<meta itemprop=dateModified content="2021-08-08T21:06:20+08:00">
+<meta itemprop=wordCount content="535">
+<meta itemprop=keywords content="题解,洛谷,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="题解 P2013 无线电测向">
+<meta name=twitter:description content="题目分析 读完题后，很容易就能看出来，这道题的核心是求两直线交点 在这之前，我们要先算出这两条直线 显然，这两条直线是给定的两座灯塔与船的连线（废"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/blog/" class="logo">cyx20080216的小屋</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/blog/ class=logo>cyx20080216的小屋</a>
 </div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/blog/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/blog/post/">
-        <li class="mobile-menu-item">历史</li>
-      </a><a href="/blog/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="/blog/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/blog/abaut/">
-        <li class="mobile-menu-item">关于</li>
-      </a><a href="/blog/search/">
-        <li class="mobile-menu-item">🔍</li>
-      </a>
-  </ul>
-
-  
-
-
-</nav>
-
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/blog/" class="logo">cyx20080216的小屋</a>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
 </div>
-
-
-
-
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/blog/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/blog/post/">历史</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/blog/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/blog/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/blog/abaut/">关于</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/blog/search/">🔍</a>
-      </li>
-  </ul>
-</nav>
-
-    </header>
-    
-    
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">题解 P2013 无线电测向</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2021-08-08 </span>
-        <div class="post-category">
-            <a href="/blog/categories/%E9%A2%98%E8%A7%A3/"> 题解 </a>
-            </div>
-          <span class="more-meta"> 约 535 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#题目分析">题目分析</a></li>
-        <li><a href="#具体步骤如下">具体步骤如下</a></li>
-        <li><a href="#code">Code</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
 </div>
-    <div class="post-content">
-      <h2 id="题目分析">题目分析</h2>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/blog/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/blog/post/>
+<li class=mobile-menu-item>历史</li>
+</a><a href=/blog/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/blog/categories/>
+<li class=mobile-menu-item>分类</li>
+</a><a href=/blog/abaut/>
+<li class=mobile-menu-item>关于</li>
+</a><a href=/blog/search/>
+<li class=mobile-menu-item>🔍</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/blog/ class=logo>cyx20080216的小屋</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/blog/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/blog/post/>历史</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/blog/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/blog/categories/>分类</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/blog/abaut/>关于</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/blog/search/>🔍</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>题解 P2013 无线电测向</h1>
+<div class=post-meta>
+<span class=post-time> 2021-08-08 </span>
+<div class=post-category>
+<a href=/blog/categories/%E9%A2%98%E8%A7%A3/> 题解 </a>
+</div>
+<span class=more-meta> 约 535 字 </span>
+<span class=more-meta> 预计阅读 2 分钟 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class="post-toc-content always-active">
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#题目分析>题目分析</a></li>
+<li><a href=#具体步骤如下>具体步骤如下</a></li>
+<li><a href=#code>Code</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<h2 id=题目分析>题目分析</h2>
 <p>读完题后，很容易就能看出来，这道题的核心是<strong>求两直线交点</strong></p>
 <p>在这之前，我们要先算出这两条直线</p>
 <p>显然，这两条直线是给定的两座灯塔与船的连线（<del>废话</del>），可惜我们不知道船的位置</p>
 <p>我们虽然不知道船的具体位置，但是题目给了我们足以算出船相对与灯塔的方向的信息。所以，我们可以在这个方向或是反方向上取任意一点，因为<strong>同一直线上取任意两点计算得到的直线都是原直线</strong></p>
-<h2 id="具体步骤如下">具体步骤如下</h2>
+<h2 id=具体步骤如下>具体步骤如下</h2>
 <p>这里以灯塔1为例</p>
 <p>我们用斜截式 $y=ax+b$ 表示该直线</p>
 <p>用 $x_{Light}$ 和 $y_{Light}$ 表示灯塔1的坐标</p>
@@ -181,285 +136,237 @@
 <p>利用 $\theta_{LightToBoat}$ 我们又可以求出 $x_{FrontOfLight}=x_{Light}+sin\theta_{LightToBoat}$ 和 $y_{FrontOfLight}=y_{Light}+cos\theta_{LightToBoat}$</p>
 <p>注：这里其实跟极坐标系差不多，只不过<strong>方向不一样</strong></p>
 <p>所以， $a=\frac{y_{Light}-y_{FrontOfLight}}{x_{Light}-x_{FrontOfLight}}$ $b=y_{Light}-ax_{Light}$</p>
-<h2 id="code">Code</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
+<h2 id=code>Code</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
 </span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
-</span><span class="cp">#define Pi 3.1415926535897932384626
-</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="k">struct</span> <span class="nc">Point</span>
-<span class="p">{</span>
-	<span class="kt">double</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
-	<span class="n">Point</span><span class="p">(</span><span class="k">const</span> <span class="kt">double</span> <span class="o">&amp;</span><span class="n">x</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="k">const</span> <span class="kt">double</span> <span class="o">&amp;</span><span class="n">y</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span><span class="o">:</span>
-		<span class="n">x</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
-		<span class="n">y</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-	<span class="p">{</span>
-	<span class="p">}</span>
-<span class="p">};</span>
-<span class="k">struct</span> <span class="nc">Line</span>
-<span class="p">{</span>
-	<span class="kt">double</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">;</span>
-	<span class="n">Line</span><span class="p">(</span><span class="k">const</span> <span class="kt">double</span> <span class="o">&amp;</span><span class="n">a</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="k">const</span> <span class="kt">double</span> <span class="o">&amp;</span><span class="n">b</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span><span class="o">:</span>
-		<span class="n">a</span><span class="p">(</span><span class="n">a</span><span class="p">),</span>
-		<span class="n">b</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-	<span class="p">{</span>
-	<span class="p">}</span>
-<span class="p">};</span>
-<span class="kr">inline</span> <span class="n">Line</span> <span class="nf">twoPointToLine</span><span class="p">(</span><span class="k">const</span> <span class="n">Point</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="k">const</span> <span class="n">Point</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="k">return</span> <span class="n">Line</span><span class="p">((</span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="o">-</span><span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="o">-</span><span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="p">),</span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="o">-</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="o">-</span><span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="o">-</span><span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="kr">inline</span> <span class="n">Point</span> <span class="nf">twoLineToPoint</span><span class="p">(</span><span class="k">const</span> <span class="n">Line</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="k">const</span> <span class="n">Line</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="k">return</span> <span class="n">Point</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">b</span><span class="o">-</span><span class="n">b</span><span class="p">.</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">.</span><span class="n">a</span><span class="p">),</span><span class="o">-</span><span class="n">a</span><span class="p">.</span><span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">b</span><span class="o">-</span><span class="n">b</span><span class="p">.</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">.</span><span class="n">a</span><span class="p">)</span><span class="o">+</span><span class="n">a</span><span class="p">.</span><span class="n">b</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="n">Point</span> <span class="n">light1</span><span class="p">,</span><span class="n">light2</span><span class="p">;</span>
-<span class="kt">double</span> <span class="n">boatFOV</span><span class="p">;</span>
-<span class="kt">double</span> <span class="n">light1FOV</span><span class="p">,</span><span class="n">light2FOV</span><span class="p">;</span>
-<span class="kr">inline</span> <span class="kt">void</span> <span class="nf">init</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
-	<span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="n">Point</span><span class="o">&gt;</span> <span class="n">light</span><span class="p">;</span>
-	<span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
-	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="n">string</span> <span class="n">lightName</span><span class="p">;</span>
-		<span class="n">Point</span> <span class="n">point</span><span class="p">;</span>
-		<span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">lightName</span><span class="p">;</span>
-		<span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%lf %lf&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">point</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="o">&amp;</span><span class="n">point</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
-		<span class="n">light</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">make_pair</span><span class="p">(</span><span class="n">lightName</span><span class="p">,</span><span class="n">point</span><span class="p">));</span>
-	<span class="p">}</span>
-	<span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%lf&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">boatFOV</span><span class="p">);</span>
-	<span class="n">string</span> <span class="n">lightName</span><span class="p">;</span>
-	<span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">lightName</span><span class="p">;</span>
-	<span class="n">light1</span><span class="o">=</span><span class="n">light</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">lightName</span><span class="p">);</span>
-	<span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%lf&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">light1FOV</span><span class="p">);</span>
-	<span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">lightName</span><span class="p">;</span>
-	<span class="n">light2</span><span class="o">=</span><span class="n">light</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">lightName</span><span class="p">);</span>
-	<span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%lf&#34;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">light2FOV</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="kr">inline</span> <span class="kt">void</span> <span class="nf">solve</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="n">Point</span> <span class="n">frontOfLight1</span><span class="p">(</span><span class="n">light1</span><span class="p">.</span><span class="n">x</span><span class="o">+</span><span class="n">sin</span><span class="p">((</span><span class="n">boatFOV</span><span class="o">+</span><span class="n">light1FOV</span><span class="o">+</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span><span class="n">Pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">),</span><span class="n">light1</span><span class="p">.</span><span class="n">y</span><span class="o">+</span><span class="n">cos</span><span class="p">((</span><span class="n">boatFOV</span><span class="o">+</span><span class="n">light1FOV</span><span class="o">+</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span><span class="n">Pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">));</span>
-	<span class="n">Point</span> <span class="n">frontOfLight2</span><span class="p">(</span><span class="n">light2</span><span class="p">.</span><span class="n">x</span><span class="o">+</span><span class="n">sin</span><span class="p">((</span><span class="n">boatFOV</span><span class="o">+</span><span class="n">light2FOV</span><span class="o">+</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span><span class="n">Pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">),</span><span class="n">light2</span><span class="p">.</span><span class="n">y</span><span class="o">+</span><span class="n">cos</span><span class="p">((</span><span class="n">boatFOV</span><span class="o">+</span><span class="n">light2FOV</span><span class="o">+</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span><span class="n">Pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">));</span>
-	<span class="n">Line</span> <span class="n">light1ToBoat</span><span class="p">(</span><span class="n">twoPointToLine</span><span class="p">(</span><span class="n">light1</span><span class="p">,</span><span class="n">frontOfLight1</span><span class="p">));</span>
-	<span class="n">Line</span> <span class="n">light2ToBoat</span><span class="p">(</span><span class="n">twoPointToLine</span><span class="p">(</span><span class="n">light2</span><span class="p">,</span><span class="n">frontOfLight2</span><span class="p">));</span>
-	<span class="k">if</span><span class="p">(</span><span class="n">light1ToBoat</span><span class="p">.</span><span class="n">a</span><span class="o">!=</span><span class="n">light2ToBoat</span><span class="p">.</span><span class="n">a</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="n">Point</span> <span class="n">boat</span><span class="p">(</span><span class="n">twoLineToPoint</span><span class="p">(</span><span class="n">light1ToBoat</span><span class="p">,</span><span class="n">light2ToBoat</span><span class="p">));</span>
-		<span class="n">printf</span><span class="p">(</span><span class="s">&#34;%.2lf %.2lf</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">boat</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">boat</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
-	<span class="p">}</span>
-	<span class="k">else</span>
-		<span class="n">printf</span><span class="p">(</span><span class="s">&#34;NO ANSWER</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-	<span class="n">init</span><span class="p">();</span>
-	<span class="n">solve</span><span class="p">();</span>
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span><span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
+</span><span class=cp>#define Pi 3.1415926535897932384626
+</span><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+<span class=k>struct</span> <span class=nc>Point</span>
+<span class=p>{</span>
+	<span class=kt>double</span> <span class=n>x</span><span class=p>,</span><span class=n>y</span><span class=p>;</span>
+	<span class=n>Point</span><span class=p>(</span><span class=k>const</span> <span class=kt>double</span> <span class=o>&amp;</span><span class=n>x</span><span class=o>=</span><span class=mf>0.0</span><span class=p>,</span><span class=k>const</span> <span class=kt>double</span> <span class=o>&amp;</span><span class=n>y</span><span class=o>=</span><span class=mf>0.0</span><span class=p>)</span><span class=o>:</span>
+		<span class=n>x</span><span class=p>(</span><span class=n>x</span><span class=p>),</span>
+		<span class=n>y</span><span class=p>(</span><span class=n>y</span><span class=p>)</span>
+	<span class=p>{</span>
+	<span class=p>}</span>
+<span class=p>};</span>
+<span class=k>struct</span> <span class=nc>Line</span>
+<span class=p>{</span>
+	<span class=kt>double</span> <span class=n>a</span><span class=p>,</span><span class=n>b</span><span class=p>;</span>
+	<span class=n>Line</span><span class=p>(</span><span class=k>const</span> <span class=kt>double</span> <span class=o>&amp;</span><span class=n>a</span><span class=o>=</span><span class=mf>0.0</span><span class=p>,</span><span class=k>const</span> <span class=kt>double</span> <span class=o>&amp;</span><span class=n>b</span><span class=o>=</span><span class=mf>0.0</span><span class=p>)</span><span class=o>:</span>
+		<span class=n>a</span><span class=p>(</span><span class=n>a</span><span class=p>),</span>
+		<span class=n>b</span><span class=p>(</span><span class=n>b</span><span class=p>)</span>
+	<span class=p>{</span>
+	<span class=p>}</span>
+<span class=p>};</span>
+<span class=kr>inline</span> <span class=n>Line</span> <span class=nf>twoPointToLine</span><span class=p>(</span><span class=k>const</span> <span class=n>Point</span> <span class=o>&amp;</span><span class=n>a</span><span class=p>,</span><span class=k>const</span> <span class=n>Point</span> <span class=o>&amp;</span><span class=n>b</span><span class=p>)</span>
+<span class=p>{</span>
+	<span class=k>return</span> <span class=n>Line</span><span class=p>((</span><span class=n>a</span><span class=p>.</span><span class=n>y</span><span class=o>-</span><span class=n>b</span><span class=p>.</span><span class=n>y</span><span class=p>)</span><span class=o>/</span><span class=p>(</span><span class=n>a</span><span class=p>.</span><span class=n>x</span><span class=o>-</span><span class=n>b</span><span class=p>.</span><span class=n>x</span><span class=p>),</span><span class=n>a</span><span class=p>.</span><span class=n>y</span><span class=o>-</span><span class=p>(</span><span class=n>a</span><span class=p>.</span><span class=n>y</span><span class=o>-</span><span class=n>b</span><span class=p>.</span><span class=n>y</span><span class=p>)</span><span class=o>/</span><span class=p>(</span><span class=n>a</span><span class=p>.</span><span class=n>x</span><span class=o>-</span><span class=n>b</span><span class=p>.</span><span class=n>x</span><span class=p>)</span><span class=o>*</span><span class=n>a</span><span class=p>.</span><span class=n>x</span><span class=p>);</span>
+<span class=p>}</span>
+<span class=kr>inline</span> <span class=n>Point</span> <span class=nf>twoLineToPoint</span><span class=p>(</span><span class=k>const</span> <span class=n>Line</span> <span class=o>&amp;</span><span class=n>a</span><span class=p>,</span><span class=k>const</span> <span class=n>Line</span> <span class=o>&amp;</span><span class=n>b</span><span class=p>)</span>
+<span class=p>{</span>
+	<span class=k>return</span> <span class=n>Point</span><span class=p>(</span><span class=o>-</span><span class=p>(</span><span class=n>a</span><span class=p>.</span><span class=n>b</span><span class=o>-</span><span class=n>b</span><span class=p>.</span><span class=n>b</span><span class=p>)</span><span class=o>/</span><span class=p>(</span><span class=n>a</span><span class=p>.</span><span class=n>a</span><span class=o>-</span><span class=n>b</span><span class=p>.</span><span class=n>a</span><span class=p>),</span><span class=o>-</span><span class=n>a</span><span class=p>.</span><span class=n>a</span><span class=o>*</span><span class=p>(</span><span class=n>a</span><span class=p>.</span><span class=n>b</span><span class=o>-</span><span class=n>b</span><span class=p>.</span><span class=n>b</span><span class=p>)</span><span class=o>/</span><span class=p>(</span><span class=n>a</span><span class=p>.</span><span class=n>a</span><span class=o>-</span><span class=n>b</span><span class=p>.</span><span class=n>a</span><span class=p>)</span><span class=o>+</span><span class=n>a</span><span class=p>.</span><span class=n>b</span><span class=p>);</span>
+<span class=p>}</span>
+<span class=n>Point</span> <span class=n>light1</span><span class=p>,</span><span class=n>light2</span><span class=p>;</span>
+<span class=kt>double</span> <span class=n>boatFOV</span><span class=p>;</span>
+<span class=kt>double</span> <span class=n>light1FOV</span><span class=p>,</span><span class=n>light2FOV</span><span class=p>;</span>
+<span class=kr>inline</span> <span class=kt>void</span> <span class=nf>init</span><span class=p>()</span>
+<span class=p>{</span>
+	<span class=kt>int</span> <span class=n>n</span><span class=p>;</span>
+	<span class=n>map</span><span class=o>&lt;</span><span class=n>string</span><span class=p>,</span><span class=n>Point</span><span class=o>&gt;</span> <span class=n>light</span><span class=p>;</span>
+	<span class=n>scanf</span><span class=p>(</span><span class=s>&#34;%d&#34;</span><span class=p>,</span><span class=o>&amp;</span><span class=n>n</span><span class=p>);</span>
+	<span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;=</span><span class=n>n</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+	<span class=p>{</span>
+		<span class=n>string</span> <span class=n>lightName</span><span class=p>;</span>
+		<span class=n>Point</span> <span class=n>point</span><span class=p>;</span>
+		<span class=n>cin</span><span class=o>&gt;&gt;</span><span class=n>lightName</span><span class=p>;</span>
+		<span class=n>scanf</span><span class=p>(</span><span class=s>&#34;%lf %lf&#34;</span><span class=p>,</span><span class=o>&amp;</span><span class=n>point</span><span class=p>.</span><span class=n>x</span><span class=p>,</span><span class=o>&amp;</span><span class=n>point</span><span class=p>.</span><span class=n>y</span><span class=p>);</span>
+		<span class=n>light</span><span class=p>.</span><span class=n>insert</span><span class=p>(</span><span class=n>make_pair</span><span class=p>(</span><span class=n>lightName</span><span class=p>,</span><span class=n>point</span><span class=p>));</span>
+	<span class=p>}</span>
+	<span class=n>scanf</span><span class=p>(</span><span class=s>&#34;%lf&#34;</span><span class=p>,</span><span class=o>&amp;</span><span class=n>boatFOV</span><span class=p>);</span>
+	<span class=n>string</span> <span class=n>lightName</span><span class=p>;</span>
+	<span class=n>cin</span><span class=o>&gt;&gt;</span><span class=n>lightName</span><span class=p>;</span>
+	<span class=n>light1</span><span class=o>=</span><span class=n>light</span><span class=p>.</span><span class=n>at</span><span class=p>(</span><span class=n>lightName</span><span class=p>);</span>
+	<span class=n>scanf</span><span class=p>(</span><span class=s>&#34;%lf&#34;</span><span class=p>,</span><span class=o>&amp;</span><span class=n>light1FOV</span><span class=p>);</span>
+	<span class=n>cin</span><span class=o>&gt;&gt;</span><span class=n>lightName</span><span class=p>;</span>
+	<span class=n>light2</span><span class=o>=</span><span class=n>light</span><span class=p>.</span><span class=n>at</span><span class=p>(</span><span class=n>lightName</span><span class=p>);</span>
+	<span class=n>scanf</span><span class=p>(</span><span class=s>&#34;%lf&#34;</span><span class=p>,</span><span class=o>&amp;</span><span class=n>light2FOV</span><span class=p>);</span>
+<span class=p>}</span>
+<span class=kr>inline</span> <span class=kt>void</span> <span class=nf>solve</span><span class=p>()</span>
+<span class=p>{</span>
+	<span class=n>Point</span> <span class=n>frontOfLight1</span><span class=p>(</span><span class=n>light1</span><span class=p>.</span><span class=n>x</span><span class=o>+</span><span class=n>sin</span><span class=p>((</span><span class=n>boatFOV</span><span class=o>+</span><span class=n>light1FOV</span><span class=o>+</span><span class=mi>180</span><span class=p>)</span><span class=o>*</span><span class=n>Pi</span><span class=o>/</span><span class=mf>180.0</span><span class=p>),</span><span class=n>light1</span><span class=p>.</span><span class=n>y</span><span class=o>+</span><span class=n>cos</span><span class=p>((</span><span class=n>boatFOV</span><span class=o>+</span><span class=n>light1FOV</span><span class=o>+</span><span class=mi>180</span><span class=p>)</span><span class=o>*</span><span class=n>Pi</span><span class=o>/</span><span class=mf>180.0</span><span class=p>));</span>
+	<span class=n>Point</span> <span class=n>frontOfLight2</span><span class=p>(</span><span class=n>light2</span><span class=p>.</span><span class=n>x</span><span class=o>+</span><span class=n>sin</span><span class=p>((</span><span class=n>boatFOV</span><span class=o>+</span><span class=n>light2FOV</span><span class=o>+</span><span class=mi>180</span><span class=p>)</span><span class=o>*</span><span class=n>Pi</span><span class=o>/</span><span class=mf>180.0</span><span class=p>),</span><span class=n>light2</span><span class=p>.</span><span class=n>y</span><span class=o>+</span><span class=n>cos</span><span class=p>((</span><span class=n>boatFOV</span><span class=o>+</span><span class=n>light2FOV</span><span class=o>+</span><span class=mi>180</span><span class=p>)</span><span class=o>*</span><span class=n>Pi</span><span class=o>/</span><span class=mf>180.0</span><span class=p>));</span>
+	<span class=n>Line</span> <span class=n>light1ToBoat</span><span class=p>(</span><span class=n>twoPointToLine</span><span class=p>(</span><span class=n>light1</span><span class=p>,</span><span class=n>frontOfLight1</span><span class=p>));</span>
+	<span class=n>Line</span> <span class=n>light2ToBoat</span><span class=p>(</span><span class=n>twoPointToLine</span><span class=p>(</span><span class=n>light2</span><span class=p>,</span><span class=n>frontOfLight2</span><span class=p>));</span>
+	<span class=k>if</span><span class=p>(</span><span class=n>light1ToBoat</span><span class=p>.</span><span class=n>a</span><span class=o>!=</span><span class=n>light2ToBoat</span><span class=p>.</span><span class=n>a</span><span class=p>)</span>
+	<span class=p>{</span>
+		<span class=n>Point</span> <span class=n>boat</span><span class=p>(</span><span class=n>twoLineToPoint</span><span class=p>(</span><span class=n>light1ToBoat</span><span class=p>,</span><span class=n>light2ToBoat</span><span class=p>));</span>
+		<span class=n>printf</span><span class=p>(</span><span class=s>&#34;%.2lf %.2lf</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span><span class=n>boat</span><span class=p>.</span><span class=n>x</span><span class=p>,</span><span class=n>boat</span><span class=p>.</span><span class=n>y</span><span class=p>);</span>
+	<span class=p>}</span>
+	<span class=k>else</span>
+		<span class=n>printf</span><span class=p>(</span><span class=s>&#34;NO ANSWER</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+<span class=p>}</span>
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+<span class=p>{</span>
+	<span class=n>init</span><span class=p>();</span>
+	<span class=n>solve</span><span class=p>();</span>
+	<span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
 
 </code></pre></td></tr></table>
 </div>
 </div>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">cyx20080216</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2021-08-08
-        
-    </span>
-  </p>
-  <p class="copyright-item">
-      <span class="item-title">原始文档</span>
-      <span class="item-content"><a class="link-to-markdown" href="https://cyx20080216.github.io/blog/post/solution-p2013/index.md" target="_blank">查看本文 Markdown 版本 »</a></span>
-    </p>
-  <p class="copyright-item">
-    <span class="item-title">许可协议</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">署名-非商业性使用-相同方式共享 4.0 国际</a></span>
-  </p>
 </div>
-<footer class="post-footer">
-      <div class="post-tags">
-          <a href="/blog/tags/%E9%A2%98%E8%A7%A3/">题解</a>
-          <a href="/blog/tags/%E6%B4%9B%E8%B0%B7/">洛谷</a>
-          </div>
-      <nav class="post-nav">
-        
-        <a class="next" href="/blog/post/miller-rabin/">
-            <span class="next-text nav-default">Miller-Rabin素性测试</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="gitalk-container"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-      var gitalk = new Gitalk({
-        id: '2021-08-08 21:06:20 \u002b0800 \u002b0800',
-        title: '题解 P2013 无线电测向',
-        clientID: '5a61f349c8a77f994fdd',
-        clientSecret: '01100fcf083b6443124dfe14025e70c648142b1d',
-        repo: 'blog',
-        owner: 'cyx20080216',
-        admin: ['cyx20080216'],
-        body: decodeURI(location.href)
-      });
-      gitalk.render('gitalk-container');
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-    
-
-    
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:cyx20080216@outlook.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/cyx20080216" class="iconfont icon-github" title="github"></a>
-  <a href="https://cyx20080216.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>文章作者</span>
+<span class=item-content>cyx20080216</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>上次更新</span>
+<span class=item-content>
+2021-08-08
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>原始文档</span>
+<span class=item-content><a class=link-to-markdown href=https://cyx20080216.github.io/blog/post/solution-p2013/index.md target=_blank>查看本文 Markdown 版本 »</a></span>
+</p>
+<p class=copyright-item>
+<span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh target=_blank>署名-非商业性使用-相同方式共享 4.0 国际</a></span>
+</p>
 </div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>cyx20080216</span>
-  </span>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=/blog/tags/%E9%A2%98%E8%A7%A3/>题解</a>
+<a href=/blog/tags/%E6%B4%9B%E8%B0%B7/>洛谷</a>
 </div>
-
-    </footer>
-    
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$','$'], ['\\(','\\)']],
-        }
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
+<nav class=post-nav>
+<a class=next href=/blog/post/miller-rabin/>
+<span class="next-text nav-default">Miller-Rabin素性测试</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<div id=gitalk-container></div>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css crossorigin=anonymous>
+<script src=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js crossorigin=anonymous></script>
+<script type=text/javascript>var gitalk=new Gitalk({id:'2021-08-08 21:06:20 \u002b0800 \u002b0800',title:'题解 P2013 无线电测向',clientID:'5a61f349c8a77f994fdd',clientSecret:'01100fcf083b6443124dfe14025e70c648142b1d',repo:'blog',owner:'cyx20080216',admin:['cyx20080216'],body:decodeURI(location.href)});gitalk.render('gitalk-container')</script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/gitalk/gitalk>comments powered by gitalk.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=mailto:cyx20080216@outlook.com class="iconfont icon-email" title=email></a>
+<a href=https://github.com/cyx20080216 class="iconfont icon-github" title=github></a>
+<a href=https://cyx20080216.github.io/blog/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<span class=copyright-year>
+&copy;
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>cyx20080216</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/blog/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
 </body>
 </html>
