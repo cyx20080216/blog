@@ -26,10 +26,10 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://cyx20080216.github.io/blog/post/how-to-set-up-personal-blog/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2021-12-03T12:55:30+08:00">
-<meta property="article:modified_time" content="2021-12-04T09:45:00+08:00">
+<meta property="article:modified_time" content="2021-12-04T10:55:00+08:00">
 <meta itemprop=name content="如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客">
 <meta itemprop=description content="哪个男孩不渴望一个拥有一个个人博客呢 本文将会一步一步地介绍个人博客的搭建的全过程（也是我的个人博客的搭建过程） 注：如果有不明白的地方，可以看"><meta itemprop=datePublished content="2021-12-03T12:55:30+08:00">
-<meta itemprop=dateModified content="2021-12-04T09:45:00+08:00">
+<meta itemprop=dateModified content="2021-12-04T10:55:00+08:00">
 <meta itemprop=wordCount content="3110">
 <meta itemprop=keywords content="Hugo,Github,网站搭建,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客">
@@ -345,7 +345,7 @@ weight: 60                <span class=ni>#设置权重</span>，决定了在主�
 <p>Gitalk的添加方法比较多，需视情况而定</p>
 <p>大部分情况下，你需要进行如下操作：</p>
 <ol>
-<li>申请Github OAuth Apps.Homepage URL和Authorization callback URL<strong>必须使用<code>baseURL</code></strong></li>
+<li>申请Github OAuth Apps.<code>Homepage URL</code>和<code>Authorization callback URL</code><strong>必须使用<code>baseURL</code></strong></li>
 <li>在页面模板的合适位置添加如下内容</li>
 </ol>
 <div class=highlight><div class=chroma>
@@ -403,7 +403,7 @@ weight: 60                <span class=ni>#设置权重</span>，决定了在主�
     <span class=nx>admin</span><span class=p>=</span> <span class=s2>&#34;xxx&#34;</span> <span class=c># Required. Github repository owner and collaborators. (Users who having write access to this repository)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>当然，如果你像我一样幸运，使用的主题对Gitalk提供了支持，那么仅需根据文档或实例修改<code>config.toml</code>即可</p>
+</div><p>当然，如果你像我一样幸运，使用的主题对Gitalk提供了支持，那么仅需根据文档或示例修改<code>config.toml</code>即可</p>
 <h1 id=利用github-actions进行自动化部署与在线编辑>利用Github Actions进行自动化部署与在线编辑</h1>
 <h3 id=这有什么用>这有什么用？</h3>
 <p>这当然是有用的。例如：</p>
