@@ -2,7 +2,7 @@
 author: "cyx20080216"
 title: "如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客"
 date: 2021-12-03T12:55:30+08:00
-lastmod: 2021-12-03T22:29:00+08:00
+lastmod: 2021-12-04T09:45:00+08:00
 tags: ["Hugo","Github","网站搭建"]
 categories: ["网站搭建"]
 ---
@@ -189,6 +189,7 @@ Gitalk的添加方法比较多，需视情况而定
 这当然是有用的。例如：
 1. 你不再需要用自己的电脑Build再Push
 2. 使得编辑文章变得简单，甚至可以直接在Github的提供的网页接口上编辑
+
 ### 步骤
 1. 在Github仓库的Settings/Secrets中添加`PERSONAL_TOKEN`，值为你的私人访问秘钥
 2. 创建`.github/workflows/deploy-gh-pags.yml`，内容如下：
