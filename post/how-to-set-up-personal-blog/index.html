@@ -30,7 +30,7 @@
 <meta itemprop=name content="如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客">
 <meta itemprop=description content="哪个男孩不渴望一个拥有一个个人博客呢 本文将会一步一步地介绍个人博客的搭建的全过程（也是我的个人博客的搭建过程） 注：如果有不明白的地方，可以看"><meta itemprop=datePublished content="2021-12-03T12:55:30+08:00">
 <meta itemprop=dateModified content="2021-12-03T22:29:00+08:00">
-<meta itemprop=wordCount content="3094">
+<meta itemprop=wordCount content="3110">
 <meta itemprop=keywords content="Hugo,Github,网站搭建,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客">
 <meta name=twitter:description content="哪个男孩不渴望一个拥有一个个人博客呢 本文将会一步一步地介绍个人博客的搭建的全过程（也是我的个人博客的搭建过程） 注：如果有不明白的地方，可以看"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
@@ -98,7 +98,7 @@
 <div class=post-category>
 <a href=/blog/categories/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/> 网站搭建 </a>
 </div>
-<span class=more-meta> 约 3094 字 </span>
+<span class=more-meta> 约 3110 字 </span>
 <span class=more-meta> 预计阅读 7 分钟 </span>
 </div>
 </header>
@@ -159,18 +159,18 @@
 <h3 id=使用>使用</h3>
 <p>首先，选定一个目录来存放你的博客，你需要作如下事情：</p>
 <ul>
-<li>在该目录下创建config.toml文件，用于存储配置信息（为TOML格式）</li>
-<li>在该目录下创建themes文件夹，用于存储主题</li>
-<li>在该目录下创建content文件夹，用于存储文章</li>
+<li>在该目录下创建<code>config.toml</code>文件，用于存储配置信息（为TOML格式）</li>
+<li>在该目录下创建<code>themes</code>文件夹，用于存储主题</li>
+<li>在该目录下创建<code>content</code>文件夹，用于存储文章</li>
 </ul>
-<p>你需要找一个Hugo主题，并把它放在themes文件夹下（我使用了<a href=https://github.com/olOwOlo/hugo-theme-even>hugo-theme-even</a>）</p>
-<p>依照你所使用的主题的文档或示例，编写config.toml和在content文件夹下添加文章（有时可能还要编辑themes/主题名/config.toml）</p>
+<p>你需要找一个Hugo主题，并把它放在<code>themes</code>文件夹下（我使用了<a href=https://github.com/olOwOlo/hugo-theme-even>hugo-theme-even</a>）</p>
+<p>依照你所使用的主题的文档或示例，编写<code>config.toml</code>和在<code>content</code>文件夹下添加文章（有时可能还要编辑<code>themes/主题名/config.toml</code>，如<a href=https://github.com/syui/hugo-theme-air>hugo-theme-air</a>）</p>
 <p><a href=https://github.com/cyx20080216/blog/blob/master/config.toml>我的config.toml</a></p>
 <p>一切就绪后，你可以在目录下运行<code>hugo server</code>来让Hugo构建网站，并可以通过<a href=http://localhost:1313></a>访问</p>
 <p>注1：要构建设置了<code>draft: true</code>的草稿文章，请使用<code>hugo server --draft</code></p>
 <p>注2：命令中的<code>hugo</code>视可执行文件位置而定，除非你使用Deb包，下文也依旧如此</p>
 <h3 id=发布>发布</h3>
-<p>测试完成后，你可以使用<code>hugo</code>来发布。此时构建结果会输出到public文件夹</p>
+<p>测试完成后，你可以使用<code>hugo</code>来发布。此时构建结果会输出到<code>public</code>文件夹</p>
 <p>然后，你可以利用Web服务器和浏览器，来访问它们。</p>
 <p>注：如果你真的要就这样把它发布出去，你必须在<code>config.toml</code>中加入<code>baseURL</code>参数，值为今后访问它时使用的URL，如<code>https://cyx20080216.github.io/blog/</code></p>
 <h1 id=部署在github-pages上>部署在Github Pages上</h1>
