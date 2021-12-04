@@ -88,9 +88,10 @@ Hugo是一个静态网站生成器。当然，它也可以生成我们要搭建�
 4. 依照[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)项目的说明对主题或[hugo-search-fuse-js](https://github.com/kaushalmodi/hugo-search-fuse-js)进行相应的更改（如，我需要在`themes/hugo-theme-even/layouts/_default/baseof.html`中加入`main`和`footer`块）
 
 [我的content/search.md](https://github.com/cyx20080216/blog/blob/master/content/search.md)：
+
 ```md
 ---
-title: "🔍"               #设置标题
+title: "????"               #设置标题
 layout: "search"          #此行为必须
 outputs: ["html", "json"] #此行为必须
 menu: "main"              #添加到主菜单
@@ -98,6 +99,7 @@ weight: 60                #设置权重，决定了在主菜单中显示的顺�
 ---
 ```
 [我的themes/hugo-theme-even/layouts/\_default/baseof.html](https://github.com/cyx20080216/blog/blob/master/themes/hugo-theme-even/layouts/_default/baseof.html)：
+
 ```html
 {{ if ne .Site.Params.version "4.x" -}}
   {{ errorf "\n\nThere are two possible situations that led to this error:\n  1. You haven't copied the config.toml yet. See https://github.com/olOwOlo/hugo-theme-even#installation \n  2. You have an incompatible update. See https://github.com/olOwOlo/hugo-theme-even/blob/master/CHANGELOG.md#400-2018-11-06 \n\n有两种可能的情况会导致这个错误发生:\n  1. 你还没有复制 config.toml 参考 https://github.com/olOwOlo/hugo-theme-even/blob/master/README-zh.md#installation \n  2. 你进行了一次不兼容的更新 参考 https://github.com/olOwOlo/hugo-theme-even/blob/master/CHANGELOG.md#400-2018-11-06 \n" -}}
@@ -157,6 +159,7 @@ Gitalk的添加方法比较多，需视情况而定
 大部分情况下，你需要进行如下操作：
 1. 申请Github OAuth Apps.`Homepage URL`和`Authorization callback URL`**必须使用`baseURL`**
 2. 在页面模板的合适位置添加如下内容
+
 ```html
 <div id="gitalk-container"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
@@ -174,6 +177,7 @@ Gitalk的添加方法比较多，需视情况而定
 </script>
 ```
 3. 在config.toml中添加如下内容
+
 ```toml
 [Params.Gitalk]
     clientID = "xxx" # Your client ID
@@ -193,6 +197,7 @@ Gitalk的添加方法比较多，需视情况而定
 ### 步骤
 1. 在Github仓库的Settings/Secrets中添加`PERSONAL_TOKEN`，值为你的私人访问秘钥
 2. 创建`.github/workflows/deploy-gh-pags.yml`，内容如下：
+
 ```yml
 name: GitHub Pages
 
