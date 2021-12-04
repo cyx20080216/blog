@@ -181,6 +181,7 @@ Gitalk的添加方法比较多，需视情况而定
 这当然是有用的。例如：
 1. 你不再需要用自己的电脑Build再Push
 2. 使得编辑文章变得简单，甚至可以直接在Github的提供的网页接口上编辑
+
 ### 步骤
 1. 在Github仓库的Settings/Secrets中添加`PERSONAL_TOKEN`，值为你的私人访问秘钥
 2. 创建`.github/workflows/deploy-gh-pags.yml`，内容如下：
