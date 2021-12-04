@@ -2,7 +2,7 @@
 author: "cyx20080216"
 title: "如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客"
 date: 2021-12-03T12:55:30+08:00
-lastmod: 2021-12-04T09:45:00+08:00
+lastmod: 2021-12-04T10:55:00+08:00
 tags: ["Hugo","Github","网站搭建"]
 categories: ["网站搭建"]
 ---
@@ -155,7 +155,7 @@ weight: 60                #设置权重，决定了在主菜单中显示的顺�
 Gitalk的添加方法比较多，需视情况而定
 
 大部分情况下，你需要进行如下操作：
-1. 申请Github OAuth Apps.Homepage URL和Authorization callback URL**必须使用`baseURL`**
+1. 申请Github OAuth Apps.`Homepage URL`和`Authorization callback URL`**必须使用`baseURL`**
 2. 在页面模板的合适位置添加如下内容
 ```html
 <div id="gitalk-container"></div>
@@ -183,7 +183,7 @@ Gitalk的添加方法比较多，需视情况而定
     admin= "xxx" # Required. Github repository owner and collaborators. (Users who having write access to this repository)
 ```
 
-当然，如果你像我一样幸运，使用的主题对Gitalk提供了支持，那么仅需根据文档或实例修改`config.toml`即可
+当然，如果你像我一样幸运，使用的主题对Gitalk提供了支持，那么仅需根据文档或示例修改`config.toml`即可
 # 利用Github Actions进行自动化部署与在线编辑
 ### 这有什么用？
 这当然是有用的。例如：
