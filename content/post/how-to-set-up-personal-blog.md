@@ -21,13 +21,13 @@ Hugo是一个静态网站生成器。当然，它也可以生成我们要搭建�
 如非必需，建议下载extended版本，因为在之后可能会用到
 ### 使用
 首先，选定一个目录来存放你的博客，你需要作如下事情：
-- 在该目录下创建config.toml文件，用于存储配置信息（为TOML格式）
-- 在该目录下创建themes文件夹，用于存储主题
-- 在该目录下创建content文件夹，用于存储文章
+- 在该目录下创建`config.toml`文件，用于存储配置信息（为TOML格式）
+- 在该目录下创建`themes`文件夹，用于存储主题
+- 在该目录下创建`content`文件夹，用于存储文章
 
-你需要找一个Hugo主题，并把它放在themes文件夹下（我使用了[hugo-theme-even](https://github.com/olOwOlo/hugo-theme-even)）
+你需要找一个Hugo主题，并把它放在`themes`文件夹下（我使用了[hugo-theme-even](https://github.com/olOwOlo/hugo-theme-even)）
 
-依照你所使用的主题的文档或示例，编写config.toml和在content文件夹下添加文章（有时可能还要编辑themes/主题名/config.toml）
+依照你所使用的主题的文档或示例，编写`config.toml`和在`content`文件夹下添加文章（有时可能还要编辑`themes/主题名/config.toml`，如[hugo-theme-air](https://github.com/syui/hugo-theme-air)）
 
 [我的config.toml](https://github.com/cyx20080216/blog/blob/master/config.toml)
 
@@ -37,7 +37,7 @@ Hugo是一个静态网站生成器。当然，它也可以生成我们要搭建�
 
 注2：命令中的`hugo`视可执行文件位置而定，除非你使用Deb包，下文也依旧如此
 ### 发布
-测试完成后，你可以使用`hugo`来发布。此时构建结果会输出到public文件夹
+测试完成后，你可以使用`hugo`来发布。此时构建结果会输出到`public`文件夹
 
 然后，你可以利用Web服务器和浏览器，来访问它们。
 
@@ -182,6 +182,7 @@ Gitalk的添加方法比较多，需视情况而定
     owner = "xxx" # Your GitHub ID
     admin= "xxx" # Required. Github repository owner and collaborators. (Users who having write access to this repository)
 ```
+
 当然，如果你像我一样幸运，使用的主题对Gitalk提供了支持，那么仅需根据文档或实例修改`config.toml`即可
 # 利用Github Actions进行自动化部署与在线编辑
 ### 这有什么用？
