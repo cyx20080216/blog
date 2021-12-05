@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客 - cyx20080216的小屋</title>
+<title>如何利用Hugo,Fuse,Utterances,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客 - cyx20080216的小屋</title>
 <meta name=renderer content="webkit">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta http-equiv=cache-control content="no-transform">
@@ -21,18 +21,18 @@
 <link rel=mask-icon href=/blog/safari-pinned-tab.svg color=#5bbad5>
 <link href=/blog/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客">
+<meta property="og:title" content="如何利用Hugo,Fuse,Utterances,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客">
 <meta property="og:description" content="哪个男孩不渴望一个拥有一个个人博客呢 本文将会一步一步地介绍个人博客的搭建的全过程（也是我的个人博客的搭建过程） 注：如果有不明白的地方，可以看">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://cyx20080216.github.io/blog/post/how-to-set-up-personal-blog/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2021-12-03T12:55:30+08:00">
-<meta property="article:modified_time" content="2021-12-04T14:17:00+08:00">
-<meta itemprop=name content="如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客">
+<meta property="article:modified_time" content="2021-12-05T12:30:00+08:00">
+<meta itemprop=name content="如何利用Hugo,Fuse,Utterances,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客">
 <meta itemprop=description content="哪个男孩不渴望一个拥有一个个人博客呢 本文将会一步一步地介绍个人博客的搭建的全过程（也是我的个人博客的搭建过程） 注：如果有不明白的地方，可以看"><meta itemprop=datePublished content="2021-12-03T12:55:30+08:00">
-<meta itemprop=dateModified content="2021-12-04T14:17:00+08:00">
-<meta itemprop=wordCount content="3227">
+<meta itemprop=dateModified content="2021-12-05T12:30:00+08:00">
+<meta itemprop=wordCount content="3197">
 <meta itemprop=keywords content="Hugo,Github,网站搭建,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客">
+<meta name=twitter:title content="如何利用Hugo,Fuse,Utterances,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客">
 <meta name=twitter:description content="哪个男孩不渴望一个拥有一个个人博客呢 本文将会一步一步地介绍个人博客的搭建的全过程（也是我的个人博客的搭建过程） 注：如果有不明白的地方，可以看"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
@@ -92,13 +92,13 @@
 <div id=content class=content>
 <article class=post>
 <header class=post-header>
-<h1 class=post-title>如何利用Hugo,Fuse,Gitalk,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客</h1>
+<h1 class=post-title>如何利用Hugo,Fuse,Utterances,Github Pages,Github Actions搭建一个支持Marldown语法，搜索，评论，自动化部署，在线编辑的个人博客</h1>
 <div class=post-meta>
 <span class=post-time> 2021-12-03 </span>
 <div class=post-category>
 <a href=/blog/categories/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/> 网站搭建 </a>
 </div>
-<span class=more-meta> 约 3227 字 </span>
+<span class=more-meta> 约 3197 字 </span>
 <span class=more-meta> 预计阅读 7 分钟 </span>
 </div>
 </header>
@@ -130,7 +130,7 @@
 </ul>
 </li>
 <li><a href=#使用fuse添加搜索功能>使用Fuse添加搜索功能</a></li>
-<li><a href=#使用gitalk添加评论功能>使用Gitalk添加评论功能</a></li>
+<li><a href=#使用utterances添加评论功能>使用Utterances添加评论功能</a></li>
 <li><a href=#利用github-actions进行自动化部署与在线编辑>利用Github Actions进行自动化部署与在线编辑</a>
 <ul>
 <li>
@@ -142,6 +142,7 @@
 </ul>
 </li>
 <li><a href=#大功告成>大功告成</a></li>
+<li><a href=#update>Update</a></li>
 </ul>
 </nav>
 </div>
@@ -166,7 +167,7 @@
 <p>你需要找一个Hugo主题，并把它放在<code>themes</code>文件夹下（我使用了<a href=https://github.com/olOwOlo/hugo-theme-even>hugo-theme-even</a>）</p>
 <p>依照你所使用的主题的文档或示例，编写<code>config.toml</code>和在<code>content</code>文件夹下添加文章（有时可能还要编辑<code>themes/主题名/config.toml</code>，如<a href=https://github.com/syui/hugo-theme-air>hugo-theme-air</a>）</p>
 <p><a href=https://github.com/cyx20080216/blog/blob/master/config.toml>我的config.toml</a></p>
-<p>一切就绪后，你可以在目录下运行<code>hugo server</code>来让Hugo构建网站，并可以通过<a href=http://localhost:1313>http://localhost:1313</a>访问</p>
+<p>一切就绪后，你可以在目录下运行<code>hugo server</code>来让Hugo构建网站，并可以通过<a href=http://localhost:1313/>http://localhost:1313</a>访问</p>
 <p>注1：要构建设置了<code>draft: true</code>的草稿文章，请使用<code>hugo server --draft</code></p>
 <p>注2：命令中的<code>hugo</code>视可执行文件位置而定，除非你使用Deb包，下文也依旧如此</p>
 <h3 id=发布>发布</h3>
@@ -341,69 +342,15 @@ weight: 60                <span class=ni>#设置权重</span>，决定了在主�
 </code></pre></td></tr></table>
 </div>
 </div><p>至此，你可以通过访问<code>&lt;你的baseURL>/search/</code>来进行搜索</p>
-<h1 id=使用gitalk添加评论功能>使用Gitalk添加评论功能</h1>
-<p>Gitalk的添加方法比较多，需视情况而定</p>
+<h1 id=使用utterances添加评论功能>使用Utterances添加评论功能</h1>
+<p>Utterances的添加方法比较多，需视情况而定</p>
 <p>大部分情况下，你需要进行如下操作：</p>
 <ol>
-<li>申请Github OAuth Apps.<code>Homepage URL</code>和<code>Authorization callback URL</code><strong>必须使用<code>baseURL</code></strong></li>
-<li>在页面模板的合适位置添加如下内容</li>
+<li>创建一个仓库用于存放评论（也可以使用已有仓库，如之前创建的博客仓库）</li>
+<li>安装<a href=https://github.com/apps/utterances>Github App Utterances</a>，Repository access中选择Only select repositories，选择用于存放评论的仓库</li>
+<li>在<a href=https://utteranc.es>Utterances</a>生成JavaScript代码，在页面模板的合适位置添加</li>
 </ol>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;gitalk-container&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
-<span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css&#34;</span><span class=p>&gt;</span>
-<span class=p>&lt;</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
-<span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
-  <span class=kr>const</span> <span class=nx>gitalk</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Gitalk</span><span class=p>({</span>
-    <span class=nx>clientID</span><span class=o>:</span> <span class=s1>&#39;{{ .Site.Params.Gitalk.clientID }}&#39;</span><span class=p>,</span>
-    <span class=nx>clientSecret</span><span class=o>:</span> <span class=s1>&#39;{{ .Site.Params.Gitalk.clientSecret }}&#39;</span><span class=p>,</span>
-    <span class=nx>repo</span><span class=o>:</span> <span class=s1>&#39;{{ .Site.Params.Gitalk.repo }}&#39;</span><span class=p>,</span>
-    <span class=nx>owner</span><span class=o>:</span> <span class=s1>&#39;{{ .Site.Params.Gitalk.owner }}&#39;</span><span class=p>,</span>
-    <span class=nx>admin</span><span class=o>:</span> <span class=p>[</span><span class=s1>&#39;{{ .Site.Params.Gitalk.admin }}&#39;</span><span class=p>],</span>
-    <span class=nx>id</span><span class=o>:</span> <span class=nx>location</span><span class=p>.</span><span class=nx>pathname</span><span class=p>,</span> <span class=c1>//路径长度必须在50字符以内，否则建议使用MD5哈希值
-</span><span class=c1></span>  <span class=p>});</span>
-  <span class=nx>gitalk</span><span class=p>.</span><span class=nx>render</span><span class=p>(</span><span class=s1>&#39;gitalk-container&#39;</span><span class=p>);</span>
-<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><ol start=3>
-<li>在config.toml中添加如下内容</li>
-</ol>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=p>[</span><span class=nx>Params</span><span class=p>.</span><span class=nx>Gitalk</span><span class=p>]</span>
-    <span class=nx>clientID</span> <span class=p>=</span> <span class=s2>&#34;xxx&#34;</span> <span class=c># Your client ID</span>
-    <span class=nx>clientSecret</span> <span class=p>=</span> <span class=s2>&#34;xxx&#34;</span> <span class=c># Your client secret</span>
-    <span class=nx>repo</span> <span class=p>=</span> <span class=s2>&#34;xxx&#34;</span> <span class=c># The repo to store comments</span>
-    <span class=nx>owner</span> <span class=p>=</span> <span class=s2>&#34;xxx&#34;</span> <span class=c># Your GitHub ID</span>
-    <span class=nx>admin</span><span class=p>=</span> <span class=s2>&#34;xxx&#34;</span> <span class=c># Required. Github repository owner and collaborators. (Users who having write access to this repository)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>当然，如果你像我一样幸运，使用的主题对Gitalk提供了支持，那么仅需根据文档或示例修改<code>config.toml</code>即可</p>
+<p>当然，如果你像我一样幸运，使用的主题对Gitalk提供了支持，那么仅需根据文档或示例修改<code>config.toml</code>即可</p>
 <h1 id=利用github-actions进行自动化部署与在线编辑>利用Github Actions进行自动化部署与在线编辑</h1>
 <h3 id=这有什么用>这有什么用？</h3>
 <p>这当然是有用的。例如：</p>
@@ -504,6 +451,8 @@ weight: 60                <span class=ni>#设置权重</span>，决定了在主�
 <p>执行完上述操作，Github会自动自行第2步中编写的Github Actions配置文件，构建你的个人博客，并将<code>public</code>文件夹下的内容放在<code>gh-pages</code>分支，设置Github Pages地址</p>
 <h1 id=大功告成>大功告成</h1>
 <p>现在，你有了一个如标题所说的个人博客。每当仓库里的内容改变，Github Actions会自动帮你构建并部署。还可以随心所欲地搜索、评论。</p>
+<h1 id=update>Update</h1>
+<p>2021-12-5 12:30:00 +08:00: 由于认为Gitalk存在安全隐患，改用Utterances</p>
 </div>
 <div class=post-copyright>
 <p class=copyright-item>
@@ -513,7 +462,7 @@ weight: 60                <span class=ni>#设置权重</span>，决定了在主�
 <p class=copyright-item>
 <span class=item-title>上次更新</span>
 <span class=item-content>
-2021-12-04
+2021-12-05
 </span>
 </p>
 <p class=copyright-item>

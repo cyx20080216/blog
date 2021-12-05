@@ -23,7 +23,7 @@ Hugo是一个静态网站生成器。当然，它也可以生成我们要搭建�
 
 [我的config.toml](https://github.com/cyx20080216/blog/blob/master/config.toml)
 
-一切就绪后，你可以在目录下运行`hugo server`来让Hugo构建网站，并可以通过[http://localhost:1313](http://localhost:1313)访问
+一切就绪后，你可以在目录下运行`hugo server`来让Hugo构建网站，并可以通过[http://localhost:1313](http://localhost:1313/)访问
 
 注1：要构建设置了`draft: true`的草稿文章，请使用`hugo server --draft`
 
@@ -145,39 +145,13 @@ weight: 60                #设置权重，决定了在主菜单中显示的顺�
 </html>
 ```
 至此，你可以通过访问`<你的baseURL>/search/`来进行搜索
-# 使用Gitalk添加评论功能
-Gitalk的添加方法比较多，需视情况而定
+# 使用Utterances添加评论功能
+Utterances的添加方法比较多，需视情况而定
 
 大部分情况下，你需要进行如下操作：
-1. 申请Github OAuth Apps.`Homepage URL`和`Authorization callback URL`**必须使用`baseURL`**
-2. 在页面模板的合适位置添加如下内容
-
-```html
-<div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-  const gitalk = new Gitalk({
-    clientID: '{{ .Site.Params.Gitalk.clientID }}',
-    clientSecret: '{{ .Site.Params.Gitalk.clientSecret }}',
-    repo: '{{ .Site.Params.Gitalk.repo }}',
-    owner: '{{ .Site.Params.Gitalk.owner }}',
-    admin: ['{{ .Site.Params.Gitalk.admin }}'],
-    id: location.pathname, //路径长度必须在50字符以内，否则建议使用MD5哈希值
-  });
-  gitalk.render('gitalk-container');
-</script>
-```
-3. 在config.toml中添加如下内容
-
-```toml
-[Params.Gitalk]
-    clientID = "xxx" # Your client ID
-    clientSecret = "xxx" # Your client secret
-    repo = "xxx" # The repo to store comments
-    owner = "xxx" # Your GitHub ID
-    admin= "xxx" # Required. Github repository owner and collaborators. (Users who having write access to this repository)
-```
+1. 创建一个仓库用于存放评论（也可以使用已有仓库，如之前创建的博客仓库）
+2. 安装[Github App Utterances](https://github.com/apps/utterances)，Repository access中选择Only select repositories，选择用于存放评论的仓库
+3. 在[Utterances](https://utteranc.es)生成JavaScript代码，在页面模板的合适位置添加
 
 当然，如果你像我一样幸运，使用的主题对Gitalk提供了支持，那么仅需根据文档或示例修改`config.toml`即可
 # 利用Github Actions进行自动化部署与在线编辑
@@ -239,3 +213,6 @@ jobs:
 执行完上述操作，Github会自动自行第2步中编写的Github Actions配置文件，构建你的个人博客，并将`public`文件夹下的内容放在`gh-pages`分支，设置Github Pages地址
 # 大功告成
 现在，你有了一个如标题所说的个人博客。每当仓库里的内容改变，Github Actions会自动帮你构建并部署。还可以随心所欲地搜索、评论。
+
+# Update
+2021-12-5 12:30:00 +08:00: 由于认为Gitalk存在安全隐患，改用Utterances
