@@ -1,9 +1,9 @@
 name: Auto green
 
-on:
-  push:
-    branches:
-      - master
+#on:
+#  push:
+#    branches:
+#      - master
 #  schedule:
 #    - cron: "* * * * *"
 
