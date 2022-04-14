@@ -36,3 +36,44 @@ $\frac{dl}{dk}=\sum_{i=1}^n2x_i(f(x_i)-y_i)$
 $\frac{dl}{db}=\sum_{i=1}^n2(f(x_i)-y_i)$
 
 这样便可以得到较优的 $k$ 和 $b$
+
+# 代码
+```go
+package main
+
+import "fmt"
+
+type Point struct {
+	x, y float64
+}
+
+const learningRate = 0.01
+
+func solve(point []Point) (float64, float64) {
+	a := 0.0
+	b := 0.0
+	for i := 0; i < 10000; i++ {
+		aGrad := 0.0
+		bGrad := 0.0
+		for _, each := range point {
+			aGrad += 2 * each.x * (a*each.x + b - each.y)
+			bGrad += 2 * (a*each.x + b - each.y)
+		}
+		a = a - aGrad * learningRate
+		b = b - bGrad * learningRate
+	}
+	return a, b
+}
+
+func main() {
+	var n int
+	var point []Point
+	fmt.Scanf("%d\n", &n)
+	point = make([]Point, n)
+	for i := 0; i < n; i++ {
+		fmt.Scanf("%f %f\n", &point[i].x, &point[i].y)
+	}
+	a, b := solve(point)
+	fmt.Printf("%f %f\n", a, b)
+}
+```
