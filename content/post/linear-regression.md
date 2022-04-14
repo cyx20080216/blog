@@ -32,3 +32,15 @@ categories: ["机器学习"]
 最后就可以得到较优的 $k$
 # 计算梯度
 这一步只需要简单的微分知识，可以得到 $\frac{dl}{dk}=\sum_{i=1}^n2x_i(f(x_i)-y_i)$
+# 进阶
+如果 $f(x)=kx+b$ ，就有了两个参数，但做法依然类似，不过是多处理一个参数
+
+每次让 $k$ 移动 $-\frac{dl}{dk}\eta$
+
+每次让 $b$ 移动 $-\frac{dl}{db}\eta$
+
+$\frac{dl}{dk}=\sum_{i=1}^n2x_i(f(x_i)-y_i)$
+
+$\frac{dl}{db}=\sum_{i=1}^n2(f(x_i)-y_i)$
+
+这样便可以得到较优的 $k$ 和 $b$
