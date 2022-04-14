@@ -3,7 +3,7 @@ author: "cyx20080216"
 title: "题解 P4825 【[USACO15FEB]Cow Hopscotch S】"
 date: 2020-08-19T13:51:11+08:00
 lastmod: 2020-08-19T13:51:11+08:00
-tags: ["题解","洛谷"]
+tags: ["题解"]
 categories: ["题解"]
 ---
 ### 这道题应该使用动态规划
