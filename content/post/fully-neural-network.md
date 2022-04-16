@@ -2,7 +2,7 @@
 author: "cyx20080216"
 title: "全连接神经网络浅析"
 date: 2022-04-15T22:41:00+08:00
-lastmod: 2022-04-16T12:12:00+08:00
+lastmod: 2022-04-16T12:54:00+08:00
 tags: ["算法", "机器学习"]
 categories: ["机器学习"]
 ---
@@ -108,23 +108,23 @@ $$b_{ki}\gets O(b_{ki}, \dfrac{dl}{db_{ki}}, \eta)$$
 
 $$
 \begin{aligned}
-&\dfrac{dl}{dw_{kij}}=\dfrac{dl}{dq_{ki}}\cdot\dfrac{dq_{ki}}{dw_{kij}}\\
-&\;\;\;\;\;\;\;\;\;=\dfrac{dl}{dq_{ki}}\cdot r_{{k-1}j}\\
+\dfrac{dl}{dw_{kij}}&=\dfrac{dl}{dq_{ki}}\cdot\dfrac{dq_{ki}}{dw_{kij}}\\
+&=\dfrac{dl}{dq_{ki}}\cdot r_{{k-1}j}\\
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-&\dfrac{dl}{db_{ki}}=\dfrac{dl}{dq_{ki}}\cdot\dfrac{dq_{ki}}{db_{ki}}\\
-&\;\;\;\;\;\;\;=\dfrac{dl}{dq_{ki}}\\
+\dfrac{dl}{db_{ki}}&=\dfrac{dl}{dq_{ki}}\cdot\dfrac{dq_{ki}}{db_{ki}}\\
+&=\dfrac{dl}{dq_{ki}}\\
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-&\dfrac{dl}{dq_{ki}}=\sum_{j=1}^{n_{k+1}}\dfrac{dl}{dq_{{k+1}j}}\cdot\dfrac{dq_{{k+1}j}}{dr_{ki}}\cdot\dfrac{dr_{ki}}{dq_{ki}}\\
-&\;\;\;\;\;\;\;=\sum_{j=1}^{n_{k+1}}\dfrac{dl}{dq_{{k+1}j}}\cdot w_{{k+1}ji}\cdot f_k^{'}(q_{ki})\\
-&\;\;\;\;\;\;\;=(\sum_{j=1}^{n_{k+1}}\dfrac{dl}{dq_{{k+1}j}}\cdot w_{{k+1}ji})\cdot f_k^{'}(q_{ki})\\
+\dfrac{dl}{dq_{ki}}&=\sum_{j=1}^{n_{k+1}}\dfrac{dl}{dq_{{k+1}j}}\cdot\dfrac{dq_{{k+1}j}}{dr_{ki}}\cdot\dfrac{dr_{ki}}{dq_{ki}}\\
+&=\sum_{j=1}^{n_{k+1}}\dfrac{dl}{dq_{{k+1}j}}\cdot w_{{k+1}ji}\cdot f_k^{'}(q_{ki})\\
+&=(\sum_{j=1}^{n_{k+1}}\dfrac{dl}{dq_{{k+1}j}}\cdot w_{{k+1}ji})\cdot f_k^{'}(q_{ki})\\
 \end{aligned}
 $$
 
@@ -132,8 +132,8 @@ $$
 
 $$
 \begin{aligned}
-&\dfrac{dl}{dq_{Ti}}=\dfrac{dl}{dr_{Ti}}\cdot\dfrac{dr_{Ti}}{dq_{Ti}}\\
-&\;\;\;\;\;\;\;=\dfrac{dl}{dr_{Ti}}\cdot f_T^{'}(q_{Ti})\\
+\dfrac{dl}{dq_{Ti}}&=\dfrac{dl}{dr_{Ti}}\cdot\dfrac{dr_{Ti}}{dq_{Ti}}\\
+&=\dfrac{dl}{dr_{Ti}}\cdot f_T^{'}(q_{Ti})\\
 \end{aligned}
 $$
 
