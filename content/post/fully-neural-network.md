@@ -6,7 +6,7 @@ lastmod: 2022-04-16T12:12:00+08:00
 tags: ["算法", "机器学习"]
 categories: ["机器学习"]
 ---
-![全连接神经网络简图](/images/neural-network-structure.png)
+![全连接神经网络简图](https://cyx20080216.github.io/blog/images/neural-network-structure.png)
 
 这是一个全连接神经网络的简图，由一个输入层，两个隐藏层和一个输出层构成
 
@@ -14,7 +14,7 @@ categories: ["机器学习"]
 # 神经元
 将一个神经元放大来看，大概是这样：
 
-![神经元简图](/images/neural-structure.png)
+![神经元简图](https://cyx20080216.github.io/blog/images/neural-structure.png)
 
 其中， $w_i$ 是权重， $b$ 是偏置， $f(x)$ 是激活函数
 
