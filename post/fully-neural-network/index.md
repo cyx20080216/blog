@@ -68,7 +68,7 @@ $$r_{ki}=f_k(q_{ki})$$
 
 想要找到最合适的参数，就是找到 $l$ 的低谷
 
-我们可以通过一些方法求出 $\dfrac{dl}{dw_{kij}}$ 和 $\dfrac{dl}{dw_{bi}}$
+我们可以通过一些方法求出 $\dfrac{\mathrm{d}l}{\mathrm{d}w_{kij}}$ 和 $\dfrac{\mathrm{d}l}{\mathrm{d}w_{bi}}$
 
 求出了微分，我们就能够知道如何调整参数才能让 $l$ 尽可能快地减小
 
@@ -86,13 +86,13 @@ $$r_{ki}=f_k(q_{ki})$$
 
 这样一来，只需不断使
 
-$$w_{kij}\gets O(w_{kij}, \dfrac{dl}{dw_{kij}}, \eta)$$
+$$w_{kij}\gets O(w_{kij}, \dfrac{\mathrm{d}l}{\mathrm{d}w_{kij}}, \eta)$$
 
-$$b_{ki}\gets O(b_{ki}, \dfrac{dl}{db_{ki}}, \eta)$$
+$$b_{ki}\gets O(b_{ki}, \dfrac{\mathrm{d}l}{\mathrm{d}b_{ki}}, \eta)$$
 
 就可以得到较优的参数
 # 反向传播
-现在，我们来说说如何求出 $\dfrac{dl}{dw_{kij}}$ 和 $\dfrac{dl}{db_{ki}}$ ，这也是最难的一部分
+现在，我们来说说如何求出 $\dfrac{\mathrm{d}l}{\mathrm{d}w_{kij}}$ 和 $\dfrac{\mathrm{d}l}{\mathrm{d}b_{ki}}$ ，这也是最难的一部分
 
 **高能预警，请有一定的微分基础后再往下读**
 
@@ -100,23 +100,23 @@ $$b_{ki}\gets O(b_{ki}, \dfrac{dl}{db_{ki}}, \eta)$$
 
 $$
 \begin{aligned}
-\dfrac{dl}{dw_{kij}}&=\dfrac{dl}{dq_{ki}}\cdot\dfrac{dq_{ki}}{dw_{kij}}\\
-&=\dfrac{dl}{dq_{ki}}\cdot r_{{k-1}j}\\
+\dfrac{\mathrm{d}l}{\mathrm{d}w_{kij}}&=\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}\cdot\dfrac{\mathrm{d}q_{ki}}{\mathrm{d}w_{kij}}\\
+&=\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}\cdot r_{{k-1}j}\\
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-\dfrac{dl}{db_{ki}}&=\dfrac{dl}{dq_{ki}}\cdot\dfrac{dq_{ki}}{db_{ki}}\\
-&=\dfrac{dl}{dq_{ki}}\\
+\dfrac{\mathrm{d}l}{\mathrm{d}b_{ki}}&=\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}\cdot\dfrac{\mathrm{d}q_{ki}}{\mathrm{d}b_{ki}}\\
+&=\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}\\
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-\dfrac{dl}{dq_{ki}}&=\sum_{j=1}^{n_{k+1}}\dfrac{dl}{dq_{{k+1}j}}\cdot\dfrac{dq_{{k+1}j}}{dr_{ki}}\cdot\dfrac{dr_{ki}}{dq_{ki}}\\
-&=\sum_{j=1}^{n_{k+1}}\dfrac{dl}{dq_{{k+1}j}}\cdot w_{{k+1}ji}\cdot f_k^{'}(q_{ki})\\
-&=(\sum_{j=1}^{n_{k+1}}\dfrac{dl}{dq_{{k+1}j}}\cdot w_{{k+1}ji})\cdot f_k^{'}(q_{ki})\\
+\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}&=\sum_{j=1}^{n_{k+1}}\dfrac{\mathrm{d}l}{\mathrm{d}q_{{k+1}j}}\cdot\dfrac{\mathrm{d}q_{{k+1}j}}{\mathrm{d}r_{ki}}\cdot\dfrac{\mathrm{d}r_{ki}}{\mathrm{d}q_{ki}}\\
+&=\sum_{j=1}^{n_{k+1}}\dfrac{\mathrm{d}l}{\mathrm{d}q_{{k+1}j}}\cdot w_{{k+1}ji}\cdot f_k^{'}(q_{ki})\\
+&=(\sum_{j=1}^{n_{k+1}}\dfrac{\mathrm{d}l}{\mathrm{d}q_{{k+1}j}}\cdot w_{{k+1}ji})\cdot f_k^{'}(q_{ki})\\
 \end{aligned}
 $$
 
@@ -124,12 +124,12 @@ $$
 
 $$
 \begin{aligned}
-\dfrac{dl}{dq_{Ti}}&=\dfrac{dl}{dr_{Ti}}\cdot\dfrac{dr_{Ti}}{dq_{Ti}}\\
-&=\dfrac{dl}{dr_{Ti}}\cdot f_T^{'}(q_{Ti})\\
+\dfrac{\mathrm{d}l}{\mathrm{d}q_{Ti}}&=\dfrac{\mathrm{d}l}{\mathrm{d}r_{Ti}}\cdot\dfrac{\mathrm{d}r_{Ti}}{\mathrm{d}q_{Ti}}\\
+&=\dfrac{\mathrm{d}l}{\mathrm{d}r_{Ti}}\cdot f_T^{'}(q_{Ti})\\
 \end{aligned}
 $$
 
-得出了这几条公式，我们就能从后往前算出所有的 $\dfrac{dl}{dq_{ki}}$ ，再用它们求出所有的 $\dfrac{dl}{dw_{kij}}$ 和 $\dfrac{dl}{db_{ki}}$ ，用来进行梯度下降
+得出了这几条公式，我们就能从后往前算出所有的 $\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}$ ，再用它们求出所有的 $\dfrac{\mathrm{d}l}{\mathrm{d}w_{kij}}$ 和 $\dfrac{\mathrm{d}l}{\mathrm{d}b_{ki}}$ ，用来进行梯度下降
 # 总结
 总结起来，重要的公式无外乎这几个：
 
@@ -139,17 +139,17 @@ $$r_{ki}=f_k(q_{ki})$$
 
 $$l=L(r_{T1}, r_{T2}, ... r_{Tn_T}, y_1, y_2, ... y_{n_T})$$
 
-$$\dfrac{dl}{dq_{Ti}}=\dfrac{dl}{dr_{Ti}}\cdot f_T^{'}(q_{Ti})$$
+$$\dfrac{\mathrm{d}l}{\mathrm{d}q_{Ti}}=\dfrac{\mathrm{d}l}{\mathrm{d}r_{Ti}}\cdot f_T^{'}(q_{Ti})$$
 
-$$\dfrac{dl}{dq_{ki}}=(\sum_{j=1}^{n_{k+1}}\dfrac{dl}{dq_{{k+1}j}}\cdot w_{{k+1}ji})\cdot f_k^{'}(q_{ki})$$
+$$\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}=(\sum_{j=1}^{n_{k+1}}\dfrac{\mathrm{d}l}{\mathrm{d}q_{{k+1}j}}\cdot w_{{k+1}ji})\cdot f_k^{'}(q_{ki})$$
 
-$$\dfrac{dl}{dw_{kij}}=\dfrac{dl}{dq_{ki}}\cdot r_{{k-1}j}$$
+$$\dfrac{\mathrm{d}l}{\mathrm{d}w_{kij}}=\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}\cdot r_{{k-1}j}$$
 
-$$\dfrac{dl}{db_{ki}}=\dfrac{dl}{dq_{ki}}$$
+$$\dfrac{\mathrm{d}l}{\mathrm{d}b_{ki}}=\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}$$
 
-$$w_{kij}\gets O(w_{kij}, \dfrac{dl}{dw_{kij}}, \eta)$$
+$$w_{kij}\gets O(w_{kij}, \dfrac{\mathrm{d}l}{\mathrm{d}w_{kij}}, \eta)$$
 
-$$b_{ki}\gets O(b_{ki}, \dfrac{dl}{db_{ki}}, \eta)$$
+$$b_{ki}\gets O(b_{ki}, \dfrac{\mathrm{d}l}{\mathrm{d}b_{ki}}, \eta)$$
 # 再谈训练
 在训练一个模型时，需要将数据集分成两部分：训练集和测试集
 
@@ -283,7 +283,6 @@ void FeedforwardNeuralNetwork::adjust(const std::vector<double> &in,const std::v
     for(unsigned i=1;i<=layer.size();i++)
         layer[i-1].adjust(i<2?in:outForEachLayer.at(i-2),gradientForEachLayer.at(i-1),learningRate);
 }
-
 #include<math.h>
 #define E 2.7182818284590452353602874713526624977572470936999595749669676277240766303535475945713821785251664274
 double Sigmoid(const double &a)
@@ -295,7 +294,6 @@ double SigmoidDerivative(const double &a)
     return Sigmoid(a)*(1-Sigmoid(a));
 }
 #undef E
-
 #include<math.h>
 #define E 2.7182818284590452353602874713526624977572470936999595749669676277240766303535475945713821785251664274
 double Tanh(const double &a)
@@ -307,7 +305,6 @@ double TanhDerivative(const double &a)
     return (4.0*pow(E,2.0*a))/((pow(E,2.0*a)+1.0)*(pow(E,2.0*a)+1.0));
 }
 #undef E
-
 double ReLU(const double &a)
 {
     if(a>0.0)
@@ -322,7 +319,6 @@ double ReLUDerivative(const double &a)
     else
         return 0.0;
 }
-
 #include<stdio.h>
 void printNetwork(const FeedforwardNeuralNetwork &network)
 {
