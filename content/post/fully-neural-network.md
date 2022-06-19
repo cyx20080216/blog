@@ -2,7 +2,7 @@
 author: "cyx20080216"
 title: "全连接神经网络浅析"
 date: 2022-04-15T22:41:00+08:00
-lastmod: 2022-04-17T21:24:00+08:00
+lastmod: 2022-06-19T11:17:00+08:00
 tags: ["算法", "机器学习"]
 categories: ["机器学习"]
 ---
@@ -76,7 +76,7 @@ $$r_{ki}=f_k(q_{ki})$$
 
 想要找到最合适的参数，就是找到 $l$ 的低谷
 
-我们可以通过一些方法求出 $\dfrac{\mathrm{d}l}{\mathrm{d}w_{kij}}$ 和 $\dfrac{\mathrm{d}l}{\mathrm{d}w_{bi}}$
+我们可以通过一些方法求出 $\dfrac{\operatorname{d}l}{\operatorname{d}w_{kij}}$ 和 $\dfrac{\operatorname{d}l}{\operatorname{d}w_{bi}}$
 
 求出了微分，我们就能够知道如何调整参数才能让 $l$ 尽可能快地减小
 
@@ -94,13 +94,13 @@ $$r_{ki}=f_k(q_{ki})$$
 
 这样一来，只需不断使
 
-$$w_{kij}\gets O(w_{kij}, \dfrac{\mathrm{d}l}{\mathrm{d}w_{kij}}, \eta)$$
+$$w_{kij}\gets O(w_{kij}, \dfrac{\operatorname{d}l}{\operatorname{d}w_{kij}}, \eta)$$
 
-$$b_{ki}\gets O(b_{ki}, \dfrac{\mathrm{d}l}{\mathrm{d}b_{ki}}, \eta)$$
+$$b_{ki}\gets O(b_{ki}, \dfrac{\operatorname{d}l}{\operatorname{d}b_{ki}}, \eta)$$
 
 就可以得到较优的参数
 # 反向传播
-现在，我们来说说如何求出 $\dfrac{\mathrm{d}l}{\mathrm{d}w_{kij}}$ 和 $\dfrac{\mathrm{d}l}{\mathrm{d}b_{ki}}$ ，这也是最难的一部分
+现在，我们来说说如何求出 $\dfrac{\operatorname{d}l}{\operatorname{d}w_{kij}}$ 和 $\dfrac{\operatorname{d}l}{\operatorname{d}b_{ki}}$ ，这也是最难的一部分
 
 **高能预警，请有一定的微分基础后再往下读**
 
@@ -108,23 +108,23 @@ $$b_{ki}\gets O(b_{ki}, \dfrac{\mathrm{d}l}{\mathrm{d}b_{ki}}, \eta)$$
 
 $$
 \begin{aligned}
-\dfrac{\mathrm{d}l}{\mathrm{d}w_{kij}}&=\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}\cdot\dfrac{\mathrm{d}q_{ki}}{\mathrm{d}w_{kij}}\\
-&=\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}\cdot r_{{k-1}j}\\
+\dfrac{\operatorname{d}l}{\operatorname{d}w_{kij}}&=\dfrac{\operatorname{d}l}{\operatorname{d}q_{ki}}\cdot\dfrac{\operatorname{d}q_{ki}}{\operatorname{d}w_{kij}}\\
+&=\dfrac{\operatorname{d}l}{\operatorname{d}q_{ki}}\cdot r_{{k-1}j}\\
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-\dfrac{\mathrm{d}l}{\mathrm{d}b_{ki}}&=\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}\cdot\dfrac{\mathrm{d}q_{ki}}{\mathrm{d}b_{ki}}\\
-&=\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}\\
+\dfrac{\operatorname{d}l}{\operatorname{d}b_{ki}}&=\dfrac{\operatorname{d}l}{\operatorname{d}q_{ki}}\cdot\dfrac{\operatorname{d}q_{ki}}{\operatorname{d}b_{ki}}\\
+&=\dfrac{\operatorname{d}l}{\operatorname{d}q_{ki}}\\
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}&=\sum_{j=1}^{n_{k+1}}\dfrac{\mathrm{d}l}{\mathrm{d}q_{{k+1}j}}\cdot\dfrac{\mathrm{d}q_{{k+1}j}}{\mathrm{d}r_{ki}}\cdot\dfrac{\mathrm{d}r_{ki}}{\mathrm{d}q_{ki}}\\
-&=\sum_{j=1}^{n_{k+1}}\dfrac{\mathrm{d}l}{\mathrm{d}q_{{k+1}j}}\cdot w_{{k+1}ji}\cdot f_k^{'}(q_{ki})\\
-&=(\sum_{j=1}^{n_{k+1}}\dfrac{\mathrm{d}l}{\mathrm{d}q_{{k+1}j}}\cdot w_{{k+1}ji})\cdot f_k^{'}(q_{ki})\\
+\dfrac{\operatorname{d}l}{\operatorname{d}q_{ki}}&=\sum_{j=1}^{n_{k+1}}\dfrac{\operatorname{d}l}{\operatorname{d}q_{{k+1}j}}\cdot\dfrac{\operatorname{d}q_{{k+1}j}}{\operatorname{d}r_{ki}}\cdot\dfrac{\operatorname{d}r_{ki}}{\operatorname{d}q_{ki}}\\
+&=\sum_{j=1}^{n_{k+1}}\dfrac{\operatorname{d}l}{\operatorname{d}q_{{k+1}j}}\cdot w_{{k+1}ji}\cdot f_k^{'}(q_{ki})\\
+&=(\sum_{j=1}^{n_{k+1}}\dfrac{\operatorname{d}l}{\operatorname{d}q_{{k+1}j}}\cdot w_{{k+1}ji})\cdot f_k^{'}(q_{ki})\\
 \end{aligned}
 $$
 
@@ -132,12 +132,12 @@ $$
 
 $$
 \begin{aligned}
-\dfrac{\mathrm{d}l}{\mathrm{d}q_{Ti}}&=\dfrac{\mathrm{d}l}{\mathrm{d}r_{Ti}}\cdot\dfrac{\mathrm{d}r_{Ti}}{\mathrm{d}q_{Ti}}\\
-&=\dfrac{\mathrm{d}l}{\mathrm{d}r_{Ti}}\cdot f_T^{'}(q_{Ti})\\
+\dfrac{\operatorname{d}l}{\operatorname{d}q_{Ti}}&=\dfrac{\operatorname{d}l}{\operatorname{d}r_{Ti}}\cdot\dfrac{\operatorname{d}r_{Ti}}{\operatorname{d}q_{Ti}}\\
+&=\dfrac{\operatorname{d}l}{\operatorname{d}r_{Ti}}\cdot f_T^{'}(q_{Ti})\\
 \end{aligned}
 $$
 
-得出了这几条公式，我们就能从后往前算出所有的 $\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}$ ，再用它们求出所有的 $\dfrac{\mathrm{d}l}{\mathrm{d}w_{kij}}$ 和 $\dfrac{\mathrm{d}l}{\mathrm{d}b_{ki}}$ ，用来进行梯度下降
+得出了这几条公式，我们就能从后往前算出所有的 $\dfrac{\operatorname{d}l}{\operatorname{d}q_{ki}}$ ，再用它们求出所有的 $\dfrac{\operatorname{d}l}{\operatorname{d}w_{kij}}$ 和 $\dfrac{\operatorname{d}l}{\operatorname{d}b_{ki}}$ ，用来进行梯度下降
 # 总结
 总结起来，重要的公式无外乎这几个：
 
@@ -147,17 +147,17 @@ $$r_{ki}=f_k(q_{ki})$$
 
 $$l=L(r_{T1}, r_{T2}, ... r_{Tn_T}, y_1, y_2, ... y_{n_T})$$
 
-$$\dfrac{\mathrm{d}l}{\mathrm{d}q_{Ti}}=\dfrac{\mathrm{d}l}{\mathrm{d}r_{Ti}}\cdot f_T^{'}(q_{Ti})$$
+$$\dfrac{\operatorname{d}l}{\operatorname{d}q_{Ti}}=\dfrac{\operatorname{d}l}{\operatorname{d}r_{Ti}}\cdot f_T^{'}(q_{Ti})$$
 
-$$\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}=(\sum_{j=1}^{n_{k+1}}\dfrac{\mathrm{d}l}{\mathrm{d}q_{{k+1}j}}\cdot w_{{k+1}ji})\cdot f_k^{'}(q_{ki})$$
+$$\dfrac{\operatorname{d}l}{\operatorname{d}q_{ki}}=(\sum_{j=1}^{n_{k+1}}\dfrac{\operatorname{d}l}{\operatorname{d}q_{{k+1}j}}\cdot w_{{k+1}ji})\cdot f_k^{'}(q_{ki})$$
 
-$$\dfrac{\mathrm{d}l}{\mathrm{d}w_{kij}}=\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}\cdot r_{{k-1}j}$$
+$$\dfrac{\operatorname{d}l}{\operatorname{d}w_{kij}}=\dfrac{\operatorname{d}l}{\operatorname{d}q_{ki}}\cdot r_{{k-1}j}$$
 
-$$\dfrac{\mathrm{d}l}{\mathrm{d}b_{ki}}=\dfrac{\mathrm{d}l}{\mathrm{d}q_{ki}}$$
+$$\dfrac{\operatorname{d}l}{\operatorname{d}b_{ki}}=\dfrac{\operatorname{d}l}{\operatorname{d}q_{ki}}$$
 
-$$w_{kij}\gets O(w_{kij}, \dfrac{\mathrm{d}l}{\mathrm{d}w_{kij}}, \eta)$$
+$$w_{kij}\gets O(w_{kij}, \dfrac{\operatorname{d}l}{\operatorname{d}w_{kij}}, \eta)$$
 
-$$b_{ki}\gets O(b_{ki}, \dfrac{\mathrm{d}l}{\mathrm{d}b_{ki}}, \eta)$$
+$$b_{ki}\gets O(b_{ki}, \dfrac{\operatorname{d}l}{\operatorname{d}b_{ki}}, \eta)$$
 # 再谈训练
 在训练一个模型时，需要将数据集分成两部分：训练集和测试集
 
